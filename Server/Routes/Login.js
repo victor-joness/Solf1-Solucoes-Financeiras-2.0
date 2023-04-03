@@ -22,7 +22,7 @@ router.post("/", async (req, res) => {
       }
 
       if (result.length > 0) {
-        bcript.compare(password, result[0].senha, (error, response) => {
+        bcript.compare(password, result[0].password, (error, response) => {
           if (error) {
             res.send(error);
           }
