@@ -1,0 +1,123 @@
+:root{
+    --preto:#1D1E22;
+    --cinza-navbar: #38393D;
+}
+
+.container{
+    background: var(--preto);
+    width: 8rem;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.3);
+}
+
+.container .container-image{
+    width: 8rem;
+}
+
+.container .container-image img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.container .container-icons{
+    margin: auto 2rem;
+}
+
+.container .container-icons .container-icons__primeiro, .container .container-icons .container-icons__segundo, .container .container-icons .container-icons__quarto, .container .container-icons .container-icons__quinto{
+    height: 5rem;
+    width: 5rem;
+    background: var(--cinza-navbar);
+    border-radius: 30%;
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 6.5rem;
+    cursor: pointer;
+}
+
+.container .container-icons .container-icons__terceiro{
+    height: 5rem;
+    width: 5rem;
+    background: var(--cinza-navbar);
+    border-radius: 30%;
+    text-align: center;
+    margin-bottom: 1rem;
+    line-height: 7.3rem;
+    cursor: pointer;
+}
+
+.container .container-icons .container-icons__primeiro:hover, .container .container-icons .container-icons__segundo:hover,.container .container-icons .container-icons__terceiro:hover, .container .container-icons .container-icons__quarto:hover, .container .container-icons .container-icons__quinto:hover{
+    border: .1rem solid #19802a;
+}
+
+.container .container-user{
+    text-align: center;
+}
+
+.container .container-avatar{
+    margin-bottom: 1.5rem;
+}
+
+.container .container-user .container-exit{
+    line-height: 6.4rem;
+    padding-left: .3rem;
+    width: 5rem;
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+    height: 5rem;
+    background: var(--cinza-navbar);
+    border-radius: 50%;
+}
+
+.container .container-user .container-exit:hover{
+    border: .1rem solid #19802a;
+}
+
+.container .container-icons .container-icons__primeiro:active, .container .container-icons .container-icons__segundo:active,.container .container-icons .container-icons__terceiro:active, .container .container-icons .container-icons__quarto:active, .container .container-icons .container-icons__quinto:active{
+    border: .1rem solid #19802a;
+}
+
+@media (max-width:600px){
+    .container{
+        background: var(--preto);
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        height: 24rem;
+        align-items: center;
+    }
+
+    .container .container-icons{
+        display: flex;
+        gap:2rem;
+    }
+
+    .container .container-user{
+        display: flex;
+        justify-content: center;
+    }
+
+    .container .container-user .container-exit{
+        margin-left: 1.5rem;
+    }
+}
+
+@media (max-width:450px){
+    .container .container-icons .container-icons__primeiro, .container .container-icons .container-icons__segundo, .container .container-icons .container-icons__quarto, .container .container-icons .container-icons__quinto, .container .container-icons .container-icons__terceiro{
+        height: 4.5rem;
+        width: 4.5rem;
+        line-height: 6rem;
+    }
+
+    .container .container-icons .container-icons__terceiro{
+        line-height: 7rem;
+    }
+}
+
+@media (max-width:350px){
+    .container .container-icons{
+        gap: 1rem;
+    }
+}
