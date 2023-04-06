@@ -10,7 +10,6 @@
     flex-direction: column;
     height: 100vh;
     align-items: center;
-    box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.3);
 }
 
 .container .container-image{
@@ -69,6 +68,12 @@
     height: 5rem;
     background: var(--cinza-navbar);
     border-radius: 50%;
+}
+
+.container .container-user .container-avatar img{
+    width: 5rem;
+    height: 5rem;
+    object-fit: cover;
 }
 
 .container .container-user .container-exit:hover{
