@@ -1,0 +1,366 @@
+:root {
+  --preto: #1d1e22;
+  --cinza-navbar: #38393d;
+  --verde: #40b189;
+}
+
+.container-dashboard {
+  display: flex;
+}
+
+.container-direita-homelogin {
+  display: flex;
+  flex-direction: column;
+  background-color: #080808ec;
+  width: 100vw;
+}
+
+.container-direita-homelogin .container-direita-header {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: var(--preto);
+  gap: 2rem;
+  width: 100%;
+}
+
+.container-direita-homelogin .container-direita-header img {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+}
+
+.container-direita-homelogin .container-direita-center {
+  margin: auto;
+}
+
+.container--pagina--inicial-homelogin {
+  display: flex;
+  height: 100vh;
+}
+
+.container--pagina--inicial-homelogin .container-direita-homelogin {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  margin: auto;
+  height: 100vh;
+}
+
+.container--pagina--inicial-homelogin .container-direita-homelogin .infos-top {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita-homelogin
+  .infos-top
+  .infos-top__esquerda {
+  width: 40rem;
+  background: var(--cinza-navbar);
+  font-size: 1.5rem;
+  color: #fff;
+  text-align: center;
+  padding-top: 3rem;
+  height: 20rem;
+  border-radius: 5rem;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita-homelogin
+  .infos-top
+  .infos-top__direita {
+  width: 38rem;
+  height: 20rem;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita-homelogin
+  .infos-top
+  .infos-top__direita
+  img {
+  width: 100%;
+  height: 100%;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita
+  .infos-top
+  .infos-top__direita
+  img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.container--pagina--inicial-homelogin .container-direita-homelogin .infos-mid {
+  display: flex;
+  height: 10rem;
+  border-radius: 3rem;
+  background: var(--cinza-navbar);
+  font-size: 1rem;
+  color: #fff;
+
+  align-items: center;
+  margin-top: 2rem;
+  margin-right: 8rem;
+  margin-left: 8rem;
+  justify-content: center;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita-homelogin
+  .infos-mid
+  .infos-mid__esquerda {
+  height: 10rem;
+  line-height: 10rem;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita-homelogin
+  .infos-mid
+  .infos-mid__esquerda
+  h1 {
+  margin-left: 3rem;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita-homelogin
+  .infos-mid
+  .infos-mid__direita {
+  margin-left: 5rem;
+  width: 25rem;
+  text-align: center;
+  background: var(--verde);
+  height: 5rem;
+  cursor: pointer;
+  border-radius: 3rem;
+  line-height: 5rem;
+  margin-right: 1rem;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita-homelogin
+  .infos-mid
+  .infos-mid__direita
+  p {
+  font-size: 1.8rem;
+}
+
+.container--pagina--inicial-homelogin .container-direita-homelogin .infos-bot {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita-homelogin
+  .infos-bot
+  .infos-bot__container {
+  height: 12rem;
+  width: 20rem;
+  background: var(--cinza-navbar);
+  border-radius: 2rem;
+  margin-top: 2rem;
+}
+
+.container--pagina--inicial-homelogin
+  .container-direita-homelogin
+  .infos-bot
+  .infos-bot__container
+  img {
+  height: 80%;
+  width: 80%;
+  object-fit: contain;
+  margin: 1rem auto;
+  margin-left: 2rem;
+}
+
+@media (max-width: 1320px) {
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 1270px) {
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid {
+    height: 15rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid
+    .infos-mid__esquerda {
+    height: 5rem;
+    line-height: 7rem;
+  }
+}
+
+@media (max-width: 1040px) {
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid
+    .infos-mid__esquerda
+    h1 {
+    margin: 0.1rem;
+  }
+}
+
+@media (max-width: 945px) {
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid
+    .infos-mid__esquerda {
+    line-height: 3rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid
+    .infos-mid__esquerda
+    h1 {
+    text-align: center;
+  }
+}
+
+@media (max-width: 610px) {
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid {
+    height: 20rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid
+    .infos-mid__direita {
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 601px) {
+  .container--pagina--inicial-homelogin {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-top {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid {
+    margin-left: 4rem;
+    margin-right: 4rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-top
+    .infos-top__esquerda {
+    width: 35rem;
+    font-size: 1.3rem;
+    height: 18rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-top
+    .infos-top__esquerda
+    h1 {
+    margin: auto 2rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-top
+    .infos-top__direita {
+    height: 18rem;
+    width: 35rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid
+    .infos-mid__esquerda {
+    margin: auto 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-top
+    .infos-top__esquerda {
+    width: 33rem;
+    padding-top: 1.5rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-top
+    .infos-top__direita {
+    width: 33rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-top
+    .infos-top__esquerda {
+    width: 28rem;
+    padding-top: 1rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-top
+    .infos-top__direita {
+    width: 28rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid
+    .infos-mid__direita {
+    width: 23rem;
+    height: 4rem;
+    line-height: 4rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-top
+    .infos-top__esquerda {
+    padding-top: 1rem;
+  }
+
+  .container--pagina--inicial-homelogin
+    .container-direita-homelogin
+    .infos-mid {
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+}
