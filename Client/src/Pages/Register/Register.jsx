@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Register.css";
 
+import axios from "axios";
 import * as yup from "yup";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { ToastContainer, toast } from "react-toastify";
@@ -16,11 +17,27 @@ const Register = () => {
   const auth = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (auth.id) {
       navigate("/dashboard");
     }
-  }, [auth.id, navigate]); */
+  }, [auth.id, navigate]);
+
+  const [file, setFile] = useState(null);
+
+  const upload = async () => {
+    try {
+      const formData = new FormData();
+      formData.append("file", file);
+      const res = await axios.post(
+        "http://localhost:5005/api/upload",
+        formData
+      );
+      return res.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const [user, setUser] = useState({
     name: "",
@@ -29,11 +46,16 @@ const Register = () => {
     confirmPassword: "",
   });
 
-  const handleClickRegister = (e) => {
+  const handleClickRegister = async (e) => {
+
+    const imgUrl = await upload();
+
     const user = {
       ...e,
       isAdmin: 0,
-      Img: "AVATAR-USER.png",
+      celular: "",
+      endereco: "",
+      Img: file ? imgUrl : "",
     };
 
     console.log(user);
@@ -86,6 +108,16 @@ const Register = () => {
           validationSchema={validationRegister}
         >
           <Form className="Form-container">
+            <input
+              style={{ display: "none" }}
+              type="file"
+              id="file"
+              accept="image/png, image/jpeg"
+              onChange={(e) => setFile(e.target.files[0])}
+            />
+            <label className="file" htmlFor="file">
+              Upload Image
+            </label>
             <div className="form-container-username">
               <Field
                 name="username"
