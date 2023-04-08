@@ -19,9 +19,19 @@ db.connect();
 router.post("/", async (req, res) => {
   const name = req.body.name;
   const email = req.body.email;
+  const celular = req.body.celular;
+  const endereco = req.body.endereco;
   const password = req.body.password;
   const isAdmin = req.body.isAdmin;
   const Img = req.body.Img;
+
+  let image = "";
+
+  if(Img == ""){
+    image = "AVATAR-USER.png"
+  }else{
+    image = Img;
+  }
 
   db.query("SELECT * FROM usuarios WHERE email = ?", [email], (err, result) => {
     if (err) {
@@ -31,8 +41,8 @@ router.post("/", async (req, res) => {
     if (result.length == 0) {
       bcript.hash(password, saltRounds, (err, hash) => {
         db.query(
-          "INSERT INTO usuarios (name, email, password, isAdmin, Img) VALUE (?,?,?,?,?)",
-          [name, email, hash, isAdmin, Img],
+          "INSERT INTO usuarios (name, email,celular, endereco, password, isAdmin, Img) VALUE (?,?,?,?,?,?,?)",
+          [name, email, celular, endereco, hash, isAdmin, image],
           (error, response) => {
             if (err) {
               res.send(err);
@@ -43,6 +53,8 @@ router.post("/", async (req, res) => {
                 id: response.insertId,
                 name: name,
                 email: email,
+                celular: celular,
+                endereco: endereco,
                 isAdmin: isAdmin,
                 Img: Img,
               },
@@ -50,6 +62,8 @@ router.post("/", async (req, res) => {
                 id: response.insertId,
                 name: name,
                 email: email,
+                celular: celular,
+                endereco: endereco,
                 isAdmin: isAdmin,
                 Img: Img,
               }),
