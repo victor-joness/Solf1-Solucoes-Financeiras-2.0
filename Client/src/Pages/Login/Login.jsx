@@ -17,11 +17,11 @@ const Login = () => {
 
   const auth = useSelector((state) => state.auth);
 
-  /* useEffect(() => {
+  useEffect(() => {
     if (auth.id) {
       navigate("/dashboard");
     }
-  }, [auth.id, navigate]); */
+  }, [auth.id, navigate]);
 
   const [User, setUser] = useState({
     email: "",
