@@ -12,7 +12,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   const redirecionaprapaginalogin = () => {
-    navigate("login");
+    navigate("auth");
   }
 
   return (
