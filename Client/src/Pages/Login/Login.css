@@ -1,13 +1,19 @@
+:root{
+    --preto:#1D1E22;
+    --cinza-navbar: #38393D;
+    --verde: #40B189;
+}
+
 .form-error{
     text-align: center;
-    color: #FF706F;
+    color: red;
     font-size: 1.2rem;
     margin-top: 1rem;
 }
 
 .container-login{
     display: flex;
-    background: linear-gradient(#D8D2FC, #FDE2E0, #E6E4EA, #E0E9F4);
+    background: var(--preto);
     width: 100vw;
     height: 100vh;
 }
@@ -16,7 +22,7 @@
     display: flex;
     flex-direction: column;
     margin: auto;
-    background: rgba(255, 255, 255, 0.432);
+    background: var(--cinza-navbar);
     width: 50rem;
     height: 45rem;
     padding: 1rem;
@@ -39,6 +45,7 @@
     text-align: center;
     font-size: 3rem;
     text-shadow: .2rem .2rem #0000004b;
+    color: white;
 }
 
 .container-login .container-login-center .Form-container{
@@ -79,7 +86,7 @@
 .container-login .container-login-center .Form-container .form-container-submit{
     width: 40rem;
     margin: auto;
-    background: #CA79C6;
+    background: var(--verde);
     color: #fff;
     padding: 1rem;
     border-radius: 1rem;
@@ -92,11 +99,12 @@
     flex-direction: column;
     margin: auto;
     margin-top: 1rem;
+    color: white;
 }
 
 .container-login .container-login-center .Form-container .form-container-account p{
     text-align: center;
-    color: #FF706F;
+    color: var(--verde);
     cursor: pointer;
     padding: .5rem;
     border-radius: 1rem;
