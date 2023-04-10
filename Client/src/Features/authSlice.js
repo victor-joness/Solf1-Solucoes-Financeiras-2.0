@@ -34,7 +34,9 @@ export const registerUser = createAsyncThunk(
         Img: user.Img,
       });
 
-      localStorage.setItem("token", data.data.token);
+      console.log(data.data.token);
+
+      /* localStorage.setItem("token", data.data.token); */
       return data.data.token;
     } catch (error) {
       console.log(error);
@@ -55,6 +57,28 @@ export const loginUser = createAsyncThunk(
 
       localStorage.setItem("token", data.data.usuario.token);
       return data.data.usuario.token;
+    } catch (error) {
+      console.log(error.response.data);
+      return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const updateUser = createAsyncThunk(
+  "auth/updateUser",
+  async (user, { rejectWithValue }) => {
+    try {
+      const data = await axios.put(`${url}/register/updateUser`, {
+        id: user.id,
+        Img: user.Img,
+        name: user.name,
+        email: user.email,
+        celular: user.celular,
+        password: user.password,
+      });
+
+      localStorage.setItem("token", data.data.token);
+      return data.data.token;
     } catch (error) {
       console.log(error.response.data);
       return rejectWithValue(error.response.data);
@@ -101,6 +125,8 @@ const authSlice = createSlice({
         registerError: "",
         loginStatus: "",
         loginError: "",
+        updateStatus: "",
+        updateError: "",
         userLoaded: false,
       };
     },
@@ -168,6 +194,38 @@ const authSlice = createSlice({
         ...state,
         loginStatus: "rejected",
         loginError: action.payload,
+      };
+    });
+
+    builder.addCase(updateUser.pending, (state, action) => {
+      return { ...state, updateStatus: "pending" };
+    });
+
+    builder.addCase(updateUser.fulfilled, (state, action) => {
+      if (action.payload) {
+        const user = jwtDecode(action.payload);
+        return {
+          ...state,
+          token: action.payload,
+          name: user.name,
+          email: user.email,
+          celular: user.celular,
+          endereco: user.endereco,
+          id: user.id,
+          isAdmin: user.isAdmin,
+          Img: user.Img,
+          updateStatus: "success",
+        };
+      } else {
+        return state;
+      }
+    });
+
+    builder.addCase(updateUser.rejected, (state, action) => {
+      return {
+        ...state,
+        updateStatus: "rejected",
+        updateError: action.payload,
       };
     });
   },

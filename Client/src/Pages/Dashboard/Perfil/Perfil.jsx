@@ -8,7 +8,7 @@ import Navbar from "../../../Components/Navbar/Navbar";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as yup from "yup";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import Header from "../../../Components/Header/Header";
 
@@ -16,10 +16,17 @@ import UserContainer from "../../../Components/UserContainer/UserContainer";
 import OptionsContainer from "../../../Components/OptionsContainer/OptionsContainer";
 import NotFound from "../../NotFound/NotFound";
 
+import { updateUser } from "../../../Features/authSlice";
+import { toast } from "react-toastify";
+
 const Perfil = () => {
   const auth = useSelector((state) => {
     return state.auth;
   });
+
+  const dispatch = useDispatch();
+
+  /* console.log(auth); */
 
   const navigate = useNavigate();
 
@@ -46,34 +53,39 @@ const Perfil = () => {
   };
 
   const [user, setUser] = useState({
-    Img: "",
-    name: "",
-    email: "",
-    celular: "",
+    Img: auth.Img,
+    name: auth.name,
+    email: auth.email,
+    celular: auth.celular,
     password: "",
   });
 
   const handleClickUpdate = async (e) => {
-    const imgUrl = await upload();
+    let imgUrl = "";
+
+    if (file) {
+      imgUrl = await upload();
+    }
 
     //poder ter o update da senha ou nao
-
     const user = {
-      ...e,
-      Img: file ? imgUrl : "",
+      id: auth.id,
+      Img: file ? imgUrl : auth.Img,
+      name: e.nome ? e.nome : auth.name,
+      email: e.email ? e.email : auth.email,
+      celular: e.celular ? e.celular : auth.celular,
+      password: e.senha ? e.senha : "",
     };
 
-    console.log(user);
-
-    /* dispatch(registerUser(user)).then((res) => {
-      toast.success("Registro com sucesso");
-    }); */
+    dispatch(updateUser(user)).then((res) => {
+      toast.success("update com sucesso");
+    });
   };
 
   const validationRegister = yup.object().shape({
     nome: yup.string().min(5, "Seu nome deve ter pelo menos 5 caracteres"),
     email: yup.string().email("insira um email valido"),
-    celular1: yup
+    celular: yup
       .string()
       .min(11, "Seu Número deve ter pelo menos 11 caracteres")
       .max(11),
@@ -149,14 +161,14 @@ const Perfil = () => {
 
                           <div className="OptionsConta-form-input">
                             <Field
-                              name="celular1"
+                              name="celular"
                               className="form-OptionsConta"
-                              placeholder="Celular 1"
+                              placeholder="Celular"
                               autoComplete="off"
                             ></Field>
                             <ErrorMessage
                               component="span"
-                              name="celular1"
+                              name="celular"
                               className="form-error-edit"
                             ></ErrorMessage>
                           </div>
@@ -194,8 +206,8 @@ const Perfil = () => {
         </div>
       </div>
     );
-  }else{
-    return(<NotFound></NotFound>);
+  } else {
+    return <NotFound></NotFound>;
   }
 };
 

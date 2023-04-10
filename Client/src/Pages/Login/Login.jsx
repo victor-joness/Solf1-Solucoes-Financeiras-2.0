@@ -41,7 +41,11 @@ const Login = () => {
 
   const handleClickLogin = (values) => {
     dispatch(loginUser(values)).then((res) => {
-      toast.success("Login com Sucesso");
+      if (res.meta.requestStatus == "rejected") {
+        toast.error("Email ou senha errado");
+      } else {
+        toast.success("Login com Sucesso");
+      }
     });
   };
 
@@ -105,6 +109,6 @@ const Login = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Login
+export default Login;

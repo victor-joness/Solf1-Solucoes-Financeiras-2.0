@@ -14,7 +14,7 @@ const Dashboard = () => {
     return state.auth;
   });
 
-  console.log(auth);
+  /* console.log(auth); */
 
   if (auth.token) {
     return (
