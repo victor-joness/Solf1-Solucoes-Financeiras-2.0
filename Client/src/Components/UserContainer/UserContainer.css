@@ -1,0 +1,104 @@
+.user-infos-container {
+  display: flex;
+  flex-direction: column;
+  width: 40rem;
+  height: 40rem;
+  background: #fff;
+  border-radius: 2rem;
+}
+
+.user-infos-container .user-infos-container__pessoais {
+  height: 20rem;
+  font-size: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.user-infos-container__img {
+  height: 15rem;
+  width: 15rem;
+  margin: auto;
+  border: 0.2rem solid var(--preto);
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+.user-infos-container__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+
+
+
+
+
+
+
+
+
+.user-infos-container .user-infos-container__img {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.user-infos-container
+  .user-infos-container__pessoais
+  .user-infos-container__pessoais__Saldo {
+  font-size: 2.5rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 950px) {
+  .user-infos-container {
+    width: 25rem;
+    height: 25rem;
+  }
+
+  .user-infos-container .user-infos-container__pessoais {
+    font-size: 1.3rem;
+  }
+
+  .user-infos-container .user-infos-container__img {
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 750px) {
+  .user-infos-container {
+    width: 22rem;
+    height: 25rem;
+    margin-left: 1.7rem;
+  }
+}
+
+@media (max-width: 670px) {
+  .user-infos-container {
+    width: 22rem;
+    height: 25rem;
+    margin-left: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .user-infos-container {
+    margin: 0 auto;
+    width: 25rem;
+    height: 27rem;
+  }
+
+  .user-infos-container .user-infos-container__pessoais {
+    font-size: 1.7rem;
+  }
+
+  .user-infos-container
+    .user-infos-container__pessoais
+    .user-infos-container__pessoais__Saldo {
+    margin-top: 0.5rem;
+  }
+}
