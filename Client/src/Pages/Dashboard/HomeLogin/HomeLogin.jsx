@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import { useSelector } from "react-redux";
 
+import Header from "../../../Components/Header/Header";
+
 //imports das images
 import grafico from "../../../images/GRAFICOS.png";
 import node from "../../../images/NODE-LOGO.png";
@@ -20,17 +22,16 @@ const HomeLogin = () => {
 
   const navigate = useNavigate();
 
-  const redirecionaprapaginalogin = () => {};
+  const perfil = () => {
+    navigate("/perfil");
+  };
 
   if (auth.token) {
     return (
       <div className="container--pagina--inicial-homelogin">
         <Navbar></Navbar>
         <div className="container-direita-homelogin">
-          <div className="container-direita-header">
-            <img src={`/upload/${auth.Img}`} alt="Imagem do user" />
-            <h1>{auth.name}</h1>
-          </div>
+          <Header></Header>
 
           <div className="container-direita-center">
             <div className="infos-top">
@@ -52,7 +53,7 @@ const HomeLogin = () => {
 
               <div
                 className="infos-mid__direita"
-                onClick={redirecionaprapaginalogin}
+                onClick={perfil}
               >
                 <p>Perfil</p>
               </div>
