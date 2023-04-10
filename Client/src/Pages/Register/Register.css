@@ -4,18 +4,6 @@
     --verde: #40B189;
 }
 
-.file{
-    width: 40rem;
-    margin: auto;
-    text-align: center;
-    background-color: white;
-    padding: 1rem;
-    font-size: 1.5rem;
-    border-radius: 1rem;
-    cursor: pointer;
-    margin-bottom: 0.5rem;
-}
-
 .form-error{
     text-align: center;
     color: red;
