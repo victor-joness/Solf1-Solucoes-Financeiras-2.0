@@ -1,0 +1,16 @@
+.container-direita-header {
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 2rem;
+  padding: 2rem;
+  background-color: var(--preto);
+  gap: 2rem;
+  width: 100%;
+}
+
+.container-direita-header img {
+  height: 5rem;
+  width: 5rem;
+  object-fit: cover;
+}
