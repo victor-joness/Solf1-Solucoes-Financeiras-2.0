@@ -1,0 +1,232 @@
+.container-perfil {
+  display: flex;
+}
+
+.container-direita-perfil {
+  display: flex;
+  flex-direction: column;
+  background-color: #080808ec;
+  width: 100vw;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs{
+    height: 90%;
+}
+
+.file{
+    width: 40rem;
+    margin: auto;
+    text-align: center;
+    background-color: white;
+    padding: 1rem;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin-bottom: 1.5rem;
+    margin-top: 1rem;
+}
+
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs form .file{
+    border: .1rem solid var(--verde);
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs form .OptionsConta-form-input{
+    width: 40rem;
+    height: 4rem;
+    border: 0.1rem solid var(--verde);
+    border-radius: 0.5rem;
+    margin: 0 auto 2rem auto;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs form .form-error-edit{
+    text-align: center;
+    color: red;
+    font-size: 1.2rem;
+    margin-top: 2rem;
+}
+
+
+
+
+
+
+
+
+
+
+.OptionsConta--container--direita--mid--direita--infos__superior{
+    font-size: 1.5rem;
+}
+
+
+.OptionsConta--container{
+    display: flex;
+    background: var(--preto);
+    height: 100%;
+}
+
+.OptionsConta--container--direita{
+    display: flex;
+    margin: 0 auto;
+}
+
+.OptionsConta--Container--direita__usuario{
+    display: flex;
+    justify-content: center;
+    margin-right: 20rem;
+}
+
+.OptionsConta--Container--direita__usuario h1{
+    font-size: 3rem;
+    color: #fff;
+    line-height: 4.5rem;
+    margin-left: 2rem;
+}
+
+.OptionsConta--container--direita__mid{
+    display: flex;
+    margin: 1rem auto;
+    gap: 5rem;
+}
+
+.OptionsConta--container--direita--mid__direita{
+    background: var(--cinza-navbar);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.OptionsConta--container--direita--mid--direita__infos{
+    background: #fff;
+    width: 60rem;
+    height: 100%;
+    border-radius: 2rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid--inputs__buttons{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.button2--OptionsConta{
+    height: 5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 4.7rem;
+    background: var(--verde);
+    color: #fff;
+    width: 15rem;
+    border-radius: .5rem;
+    border: .1rem solid #fff;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.OptionsConta--container--direita--mid__esquerda .user-infos-container{
+    margin-top: 1rem;
+    width: 38rem;
+    height: 35rem;
+}
+
+.OptionsConta--container--direita--mid__esquerda .user-infos-container .user-infos-container__img{
+    height: 15rem;
+    width: 15rem;
+    margin: 1rem auto;
+    margin-bottom: 0;
+}
+
+.OptionsConta--container--direita--mid__esquerda .user-infos-container .user-infos-container__img img{
+    height: 100%;
+    width: 100%;
+}
+
+.OptionsConta--container--direita--mid__esquerda .OptionsContainer--infos{
+    height: 35rem;
+    width: 38rem;
+}
+
+.OptionsConta--container--direita--mid__esquerda .OptionsContainer--infos .OptionsContainer--infos__conta{
+    width: 100%;
+}
+
+.OptionsConta--container--direita--mid__esquerda{
+    background: var(--cinza-navbar);
+    padding: 1rem;
+    border-radius: 3rem;
+    width: 40rem;
+    margin: auto;
+    height: 100%;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.OptionsConta--container--direita--mid__esquerda .user-infos-container .user-infos-container__pessoais{
+    font-size: 2rem;
+}
+
+.OptionsConta--Container--direita__footer{
+    display: flex;
+    font-size: 1.2rem;
+    color: #fff;
+    justify-content: center;
+}
+
+.OptionsConta--Container--direita__footer span{
+    color: var(--verde);
+}
+
+.OptionsConta--container--direita--mid--direita--infos__superior h3{
+    font-size: 2.5rem;
+}
+
+.OptionsConta-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.OptionsConta-form-input{
+    width: 30rem;
+    height: 4rem;
+    border: .1rem solid var(--verde);
+    border-radius: .5rem;
+    margin: 0 auto 2rem auto;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs .form-OptionsConta{
+    height: 100%;
+    width: 100%;
+    color: #000;
+    font-size: 2rem;
+    background: transparent;
+    margin-bottom: .5rem;
+    padding: .5rem;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs .form-OptionsConta::placeholder{
+    color: #000;
+}
+
+
+.button2--OptionsConta:hover{
+    border: .1rem solid #000;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__image{
+    height: 6rem;
+    width: 6rem;
+    margin: .3rem auto;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__image img{
+    height: 100%;
+    width: 100%;
+}
+
+.OptionsConta-form-input:nth-child(5){
+    margin-bottom: 1.5rem;
+}
