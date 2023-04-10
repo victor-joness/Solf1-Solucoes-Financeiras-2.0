@@ -16,36 +16,35 @@
   width: 100vw;
 }
 
-.container-direita-dashboard .container-direita-header {
-  display: flex;
-  justify-content: center;
-  color: white;
-  font-size: 2rem;
-  padding: 2rem;
-  background-color: var(--preto);
-  gap: 2rem;
-}
 
-.container-direita-dashboard .container-direita-header img {
-  height: 5rem;
-  width: 5rem;
-  object-fit: cover;
-}
 
-.user-infos-container__img {
-  height: 15rem;
-  width: 15rem;
-  margin: auto;
-  border: 0.2rem solid var(--preto);
-  padding: 0.5rem;
-  border-radius: 1rem;
-}
 
-.user-infos-container__img img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .Dashboard--Container--direita__menu {
   display: flex;
@@ -58,123 +57,6 @@
   align-items: center;
   gap: 2rem;
   margin-top: 13rem;
-}
-
-.user-infos-container {
-  display: flex;
-  flex-direction: column;
-  width: 40rem;
-  height: 40rem;
-  background: #fff;
-  border-radius: 2rem;
-}
-
-.user-infos-container .user-infos-container__pessoais {
-  height: 20rem;
-  font-size: 2rem;
-  display: flex;
-  flex-direction: column;
-  margin: 2rem auto;
-  text-align: center;
-}
-
-.OptionsContainer--infos {
-  display: flex;
-  flex-direction: column;
-  width: 40rem;
-  height: 40rem;
-}
-
-.OptionsContainer--infos .OptionsContainer--infos__conta {
-  display: flex;
-  margin-bottom: 1rem;
-  width: 40rem;
-  height: 10rem;
-  border-radius: 1.5rem;
-  border: 0.2rem solid #000;
-  background: #fff;
-  justify-content: start;
-  cursor: pointer;
-}
-
-.OptionsContainer--infos
-  .OptionsContainer--infos__conta
-  .OptionsContainer--infos__conta__icon {
-  height: 6rem;
-  width: 6rem;
-  text-align: center;
-  line-height: 5.3rem;
-  border-radius: 1rem;
-  background: var(--white-background);
-  margin: auto 2rem;
-  padding: 1rem;
-}
-
-.OptionsContainer--infos
-  .OptionsContainer--infos__conta
-  .OptionsContainer--infos__conta__icon
-  img {
-  height: 100%;
-  width: 100%;
-}
-
-.OptionsContainer--infos
-  .OptionsContainer--infos__conta
-  .OptionsContainer--infos__conta__pessoais {
-  font-size: 2rem;
-  margin: auto 0;
-}
-
-.OptionsContainer--infos
-  .OptionsContainer--infos__conta
-  .OptionsContainer--infos__conta__pessoais
-  p:first-child {
-  font-weight: bolder;
-}
-
-.OptionsContainer--infos
-  .OptionsContainer--infos__conta
-  .OptionsContainer--infos__conta__pessoais
-  p:last-child {
-  font-weight: 400;
-  color: grey;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.OptionsContainer--infos .OptionsContainer--infos__conta:hover {
-  border: 0.2rem solid var(--verde);
-}
-
-.OptionsContainer--infos
-  .OptionsContainer--infos__conta
-  .OptionsContainer--infos__conta__icon:hover {
-  background: var(--verde);
 }
 
 .Dashboard--Container {
@@ -206,10 +88,6 @@
   margin-left: 2rem;
 }
 
-.OptionsContainer--infos {
-  margin-top: 0.5rem;
-}
-
 .Dashboard--Container
   .Dashboard--Container--direita
   .Dashboard--Container--direita__footer {
@@ -224,19 +102,6 @@
   .Dashboard--Container--direita__footer
   span {
   color: var(--verde);
-}
-
-.user-infos-container .user-infos-container__img {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-.user-infos-container
-  .user-infos-container__pessoais
-  .user-infos-container__pessoais__Saldo {
-  font-size: 2.5rem;
-  margin-top: 1.5rem;
 }
 
 @media (max-width: 950px) {
@@ -261,31 +126,9 @@
     font-size: 2rem;
   }
 
-  .OptionsContainer--infos {
-    width: 29rem;
-    height: 25rem;
-  }
-
-  .OptionsContainer--infos .OptionsContainer--infos__conta {
-    height: 6rem;
-  }
-
   .Dashboard--Container--direita__menu {
     width: 62rem;
     height: 29rem;
-  }
-
-  .user-infos-container {
-    width: 25rem;
-    height: 25rem;
-  }
-
-  .user-infos-container .user-infos-container__pessoais {
-    font-size: 1.3rem;
-  }
-
-  .user-infos-container .user-infos-container__img {
-    margin-top: 1rem;
   }
 }
 
@@ -297,19 +140,9 @@
     height: 29rem;
   }
 
-  .OptionsContainer--infos .OptionsContainer--infos__conta {
-    width: 27rem;
-  }
-
   .Dashboard--Container--direita__menu {
     width: 55rem;
     height: 29rem;
-  }
-
-  .user-infos-container {
-    width: 22rem;
-    height: 25rem;
-    margin-left: 1.7rem;
   }
 }
 
@@ -322,20 +155,10 @@
     gap: 1rem;
   }
 
-  .OptionsContainer--infos .OptionsContainer--infos__conta {
-    width: 26rem;
-  }
-
   .Dashboard--Container--direita__menu {
     width: 50rem;
     height: 29rem;
     gap: 1rem;
-  }
-
-  .user-infos-container {
-    width: 22rem;
-    height: 25rem;
-    margin-left: 1.1rem;
   }
 }
 
@@ -379,12 +202,6 @@
     gap: 3rem;
   }
 
-  .OptionsContainer--infos {
-    margin: 0 auto;
-    width: 26rem;
-    height: 26rem;
-  }
-
   .Dashboard--Container--direita__menu {
     display: flex;
     flex-direction: column;
@@ -392,21 +209,5 @@
     height: 58rem;
     gap: 2rem;
     margin: 0 auto;
-  }
-
-  .user-infos-container {
-    margin: 0 auto;
-    width: 25rem;
-    height: 27rem;
-  }
-
-  .user-infos-container .user-infos-container__pessoais {
-    font-size: 1.7rem;
-  }
-
-  .user-infos-container
-    .user-infos-container__pessoais
-    .user-infos-container__pessoais__Saldo {
-    margin-top: 0.5rem;
   }
 }
