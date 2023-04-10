@@ -27,9 +27,9 @@ router.post("/", async (req, res) => {
 
   let image = "";
 
-  if(Img == ""){
-    image = "AVATAR-USER.png"
-  }else{
+  if (Img == "") {
+    image = "AVATAR-USER.png";
+  } else {
     image = Img;
   }
 
@@ -75,6 +75,98 @@ router.post("/", async (req, res) => {
       res.send({ msg: "Email já cadastrado" });
     }
   });
+});
+
+router.put("/updateUser", async (req, res) => {
+  const id = req.body.id;
+  const name = req.body.name;
+  const email = req.body.email;
+  const celular = req.body.celular;
+  const password = req.body.password;
+  const Img = req.body.Img;
+
+  if (password) {
+    db.query("SELECT * FROM usuarios WHERE id = ?", [id], (err2, result2) => {
+      if (err2) {
+        res.send(err2);
+      }
+
+      bcript.hash(password, saltRounds, (err, hash) => {
+        db.query(
+          "UPDATE usuarios SET name = ?, email = ? ,celular = ?,password = ?, Img = ? WHERE id = ?",
+          [name, email, celular, hash, Img, id],
+          (error, response) => {
+            if (error) {
+              res.send(error);
+            }
+            res.send({
+              msg: "mudaça feita com sucesso",
+              user: {
+                id: id,
+                name: name,
+                email: email,
+                celular: celular,
+                endereco: result2[0].endereco,
+                isAdmin: result2[0].isAdmin,
+                Img: Img,
+              },
+              token: genAuthToken({
+                id: id,
+                name: name,
+                email: email,
+                celular: celular,
+                endereco: result2[0].endereco,
+                isAdmin: result2[0].isAdmin,
+                Img: Img,
+              }),
+            });
+          }
+        );
+      });
+    });
+  } else {
+    db.query("SELECT * FROM usuarios WHERE id = ?", [id], (err2, result2) => {
+      if (err2) {
+        res.send(err2);
+      }
+
+      db.query(
+        "UPDATE usuarios SET name = ?, email = ? ,celular = ?, Img = ? WHERE id = ?",
+        [name, email, celular, Img, id],
+        (error, response) => {
+          if (error) {
+            res.send(error);
+          }
+          res.send({
+            msg: "mudaça feita com sucesso",
+            user: {
+              id: id,
+              name: name,
+              email: email,
+              celular: celular,
+              endereco: result2[0].endereco,
+              isAdmin: result2[0].isAdmin,
+              Img: Img,
+            },
+            token: genAuthToken({
+              id: id,
+              name: name,
+              email: email,
+              celular: celular,
+              endereco: result2[0].endereco,
+              isAdmin: result2[0].isAdmin,
+              Img: Img,
+            }),
+          });
+        }
+      );
+    });
+  }
+
+  //fazer as validoes se o email ja existir;
+  if(email){
+    
+  }
 });
 
 module.exports = router;
