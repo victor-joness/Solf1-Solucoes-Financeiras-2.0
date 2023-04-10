@@ -1,9 +1,3 @@
-:root{
-    --preto:#1D1E22;
-    --cinza-navbar: #38393D;
-    --verde: #40B189;
-}
-
 .form-error{
     text-align: center;
     color: red;
