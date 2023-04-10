@@ -14,6 +14,7 @@ import HomeLogin from "./Pages/Dashboard/HomeLogin/HomeLogin";
 
 import {ToastContainer} from "react-toastify";
 import NotFound from './Pages/NotFound/NotFound';
+import Perfil from './Pages/Dashboard/Perfil/Perfil';
 
 function App() {
   return(
@@ -29,6 +30,7 @@ function App() {
 
           <Route path='/dashboard' element={<Dashboard/>}/>
             <Route path='/home-login' element={<HomeLogin/>}/>
+            <Route path='/perfil' element={<Perfil/>}/>
         </Routes>
       </BrowserRouter>
     </div>
