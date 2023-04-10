@@ -29,7 +29,7 @@ const Navbar = () => {
   }
 
   const User = () => {
-
+    navigate("/perfil");
   };
 
   const Dashboard = () => {
