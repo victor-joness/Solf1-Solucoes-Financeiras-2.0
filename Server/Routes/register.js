@@ -90,7 +90,6 @@ router.put("/updateUser", async (req, res) => {
       if (err2) {
         res.send(err2);
       }
-
       bcript.hash(password, saltRounds, (err, hash) => {
         db.query(
           "UPDATE usuarios SET name = ?, email = ? ,celular = ?,password = ?, Img = ? WHERE id = ?",
@@ -164,7 +163,14 @@ router.put("/updateUser", async (req, res) => {
   }
 
   //fazer as validoes se o email ja existir;
-  if(email){
+  if (email) {
+    const id = req.body.id;
+    const name = req.body.name;
+    const email = req.body.email;
+    const celular = req.body.celular;
+    const password = req.body.password;
+    const Img = req.body.Img;
+
     
   }
 });
