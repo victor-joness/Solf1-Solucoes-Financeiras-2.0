@@ -15,6 +15,9 @@ import HomeLogin from "./Pages/Dashboard/HomeLogin/HomeLogin";
 import {ToastContainer} from "react-toastify";
 import NotFound from './Pages/NotFound/NotFound';
 import Perfil from './Pages/Dashboard/Perfil/Perfil';
+import Endereco from "./Pages/Dashboard/Endereco/Endereco";
+import Transacoes from "./Pages/Dashboard/Transacoes/Transacoes";
+import Cartoes from './Pages/Dashboard/Cartoes/Cartoes';
 
 function App() {
   return(
@@ -31,6 +34,9 @@ function App() {
           <Route path='/dashboard' element={<Dashboard/>}/>
             <Route path='/home-login' element={<HomeLogin/>}/>
             <Route path='/perfil' element={<Perfil/>}/>
+            <Route path='/endereco' element={<Endereco/>}/>
+            <Route path='/transacoes' element={<Transacoes/>}/>
+            <Route path='/cartoes' element={<Cartoes/>}/>
         </Routes>
       </BrowserRouter>
     </div>
