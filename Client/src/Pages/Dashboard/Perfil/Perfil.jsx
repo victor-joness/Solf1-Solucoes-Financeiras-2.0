@@ -121,6 +121,7 @@ const Perfil = () => {
                         validationSchema={validationRegister}
                       >
                         <Form className="OptionsConta-form">
+                        <h2 className="input-name-form">Imagem Usuário</h2>
                           <input
                             style={{ display: "none" }}
                             type="file"
@@ -131,6 +132,8 @@ const Perfil = () => {
                           <label className="file" htmlFor="file">
                             Upload Image
                           </label>
+
+                          <h2 className="input-name-form">Nome</h2>
                           <div className="OptionsConta-form-input">
                             <Field
                               name="nome"
@@ -145,6 +148,7 @@ const Perfil = () => {
                             ></ErrorMessage>
                           </div>
 
+                          <h2 className="input-name-form">Email</h2>
                           <div className="OptionsConta-form-input">
                             <Field
                               name="email"
@@ -159,6 +163,7 @@ const Perfil = () => {
                             ></ErrorMessage>
                           </div>
 
+                          <h2 className="input-name-form">Celular</h2>
                           <div className="OptionsConta-form-input">
                             <Field
                               name="celular"
@@ -173,6 +178,7 @@ const Perfil = () => {
                             ></ErrorMessage>
                           </div>
 
+                          <h2 className="input-name-form">Nova Senha</h2>
                           <div className="OptionsConta-form-input">
                             <Field
                               name="senha"
