@@ -1,0 +1,68 @@
+.OptionsConta--container--direita--mid--direita--infos__superior P {
+  padding: 2rem;
+  border: 0.1rem solid var(--verde);
+
+  font-size: 2.5rem;
+  border-radius: 0.5rem;
+  width: 80%;
+  margin: auto;
+
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+.h3-endereco {
+  margin-bottom: 1rem;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--endereco {
+  height: auto;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--endereco
+  form
+  .file {
+  border: 0.1rem solid var(--verde);
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--endereco
+  form
+  .OptionsConta-form-input {
+  width: 40rem;
+  height: 4rem;
+  border: 0.1rem solid var(--verde);
+  border-radius: 0.5rem;
+  margin: 0 auto 2rem auto;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--endereco
+  form
+  .form-error-edit {
+  text-align: center;
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--endereco
+  .form-OptionsConta {
+  height: 100%;
+  width: 100%;
+  color: #000;
+  font-size: 2rem;
+  background: transparent;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--endereco
+  .form-OptionsConta::placeholder {
+  color: #000;
+}
+
+.input-name-form {
+  display: flex;
+  justify-content: left;
+  margin-left: 9rem;
+  font-size: 2rem;
+}
