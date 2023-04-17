@@ -37,7 +37,7 @@ const Navbar = () => {
   };
 
   const cartões = () => {
-
+    navigate("/cartoes");
   };
 
   const Naoadmin = () => {
@@ -90,7 +90,7 @@ const Navbar = () => {
           <div className="container-avatar">
             <img src={avatar} alt="icon avatar navbar" />
           </div>
-          <div className="container-exit" onClick={logout}>
+          <div className="container-exit" onClick={handleLogout}>
             <img src={exit} alt="icon exit navbar" />
           </div>
         </div>
