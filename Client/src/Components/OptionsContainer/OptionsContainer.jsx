@@ -15,9 +15,13 @@ const OptionsContainer = () => {
 
   const navigate = useNavigate();
 
-  const Dashboard_endereço = () => {};
+  const Dashboard_endereço = () => {
+    navigate("/endereco");
+  };
 
-  const Dashboard_despesa = () => {};
+  const Dashboard_transacoes = () => {
+    navigate("/transacoes");
+  };
 
   const Dashboard_card = () => {};
 
@@ -69,7 +73,7 @@ const OptionsContainer = () => {
           className="OptionsContainer--infos__conta__pessoais"
           onClick={Dashboard_card}
         >
-          <p>Método de Pagamento</p>
+          <p>Talvez fazer uma aba de faturas</p>
           <p>Cadastre seus Cartões</p>
         </div>
       </div>
@@ -77,16 +81,16 @@ const OptionsContainer = () => {
       <div className="OptionsContainer--infos__conta">
         <div
           className="OptionsContainer--infos__conta__icon"
-          onClick={Dashboard_despesa}
+          onClick={Dashboard_transacoes}
         >
           <img src={iconDespesa} alt="icon de user" />
         </div>
 
         <div
           className="OptionsContainer--infos__conta__pessoais"
-          onClick={Dashboard_despesa}
+          onClick={Dashboard_transacoes}
         >
-          <p>Adicionar Despesa</p>
+          <p>Adicionar Transação</p>
           <p>Hora de passar dos limites</p>
         </div>
       </div>
