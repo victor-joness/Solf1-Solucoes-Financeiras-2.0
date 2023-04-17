@@ -1,0 +1,86 @@
+.OptionsConta--container--direita__mid{
+    gap: 2rem;
+}
+
+.container-table-listagem {
+  background: white;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+}
+
+.container-table-listagem .table {
+  width: 100%;
+}
+
+.css-1usso8h-MuiDataGrid-root {
+  font-size: 2rem !important;
+  border-radius: 1rem !important;
+}
+
+.OptionsConta--container--direita--mid__direita--infos {
+  padding: 2rem;
+  background-color: aqua;
+  height: 15rem;
+  width: auto;
+  border-radius: 1rem;
+}
+
+.OptionsConta--container--direita--mid__direita--infos h1 {
+  font-size: 1.5rem;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+.css-10hburv-MuiTypography-root {
+  font-size: 2rem !important;
+}
+
+.css-1pe4mpk-MuiButtonBase-root-MuiIconButton-root {
+  font-size: 2rem !important;
+}
+
+.css-1c2i806-MuiFormLabel-root-MuiInputLabel-root {
+  font-size: 2rem !important;
+}
+
+.css-m5hdmq-MuiInputBase-root-MuiInput-root-MuiSelect-root {
+  font-size: 2rem !important;
+}
+
+.css-v4u5dn-MuiInputBase-root-MuiInput-root {
+  font-size: 2rem !important;
+}
+
+
+
+
+
+
+.actions{
+    display: flex;
+    gap: 1rem;
+}
+
+.actions button{
+    padding: .5rem;
+    font-size: 1.5rem;
+    color: white;
+    width: 6rem;
+    cursor: pointer;
+    border-radius: .5rem;
+}
+
+.delete {
+  background-color: red;
+}
+
+.update {
+  background-color: green;
+}
