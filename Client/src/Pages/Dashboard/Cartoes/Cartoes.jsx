@@ -57,7 +57,7 @@ function Form({
   }
 
   return (
-    <form name="cc-info-form">
+    <form className="form-container-cartoes" name="cc-info-form">
       <div className="form-item-container-esquerda">
         {/*Item 1*/}
         <div className="form-item">
