@@ -1,20 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Dashboard.css";
 import Navbar from "../../Components/Navbar/Navbar";
 
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import NotFound from "../NotFound/NotFound";
 import Header from "../../Components/Header/Header";
+import { useNavigate } from "react-router-dom";
 
 import UserContainer from "../../Components/UserContainer/UserContainer";
 import OptionsContainer from "../../Components/OptionsContainer/OptionsContainer";
+
+import { enderecoFetch } from "../../Features/enderecoSlice";
 
 const Dashboard = () => {
   const auth = useSelector((state) => {
     return state.auth;
   });
 
-  /* console.log(auth); */
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (auth.id) {
+      navigate("/dashboard");
+    }
+  }, [auth.id, navigate]);
+
+  dispatch(enderecoFetch(auth.id));
 
   if (auth.token) {
     return (
