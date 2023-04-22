@@ -46,24 +46,24 @@
   justify-content: space-around;
 }
 
-form {
+.form-container-cartoes {
   display: flex;
   width: 30rem;
   height: 21rem;
   gap: 2rem;
 }
 
-.form-item-container-esquerda{
-    display: flex;
-    flex-direction: column;
+.form-item-container-esquerda {
+  display: flex;
+  flex-direction: column;
 }
 
-.form-item-container-direita{
-    display: flex;
-    flex-direction: column;
+.form-item-container-direita {
+  display: flex;
+  flex-direction: column;
 }
 
-form .submit-button {
+.form-container-cartoes .submit-button {
   margin-top: 3rem;
   padding: 0.7rem 0.6rem;
   font-size: 13px;
@@ -77,22 +77,22 @@ form .submit-button {
   position: relative;
   top: -1rem;
 }
-form .submit-button:hover {
+.form-container-cartoes .submit-button:hover {
   cursor: pointer;
   background: #600594;
   transition: background 0.5s ease-in-out;
 }
-form div {
+.form-container-cartoes div {
   display: flex;
   justify-content: space-between;
 }
-form .form-item {
+.form-container-cartoes .form-item {
   display: flex;
   flex-direction: column;
   margin-bottom: 1.1em;
 }
-form .form-item label,
-form .form-item span {
+.form-container-cartoes .form-item label,
+.form-container-cartoes .form-item span {
   color: white;
   font-size: 10px;
   font-weight: 500;
@@ -100,12 +100,12 @@ form .form-item span {
   letter-spacing: 1px;
   margin-bottom: 0.4em;
 }
-form .form-item .input-border {
+.form-container-cartoes .form-item .input-border {
   margin: 0;
   background: #dedddf;
   border-radius: 5px;
 }
-form .form-item .input-border .form-input {
+.form-container-cartoes .form-item .input-border .form-input {
   margin: 0;
   font-weight: 500;
   font-size: 14px;
@@ -117,24 +117,24 @@ form .form-item .input-border .form-input {
   color: #21092f;
   font-family: "Space Grotesk", sans-serif;
 }
-form .form-item .input-border .form-input::placeholder {
+.form-container-cartoes .form-item .input-border .form-input::placeholder {
   /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: #dedddf;
 }
-form .form-item .input-border .form-input:focus {
+.form-container-cartoes .form-item .input-border .form-input:focus {
   outline: none !important;
 }
-form .form-item .input-border.border-m {
+.form-container-cartoes .form-item .input-border.border-m {
   margin-right: 0.4rem;
 }
-form .form-item .input-border:focus-within {
+.form-container-cartoes .form-item .input-border:focus-within {
   background: linear-gradient(to right, #6448fe, #600594);
 }
-form .form-item #exp-month,
-form .form-item #exp-year {
+.form-container-cartoes .form-item #exp-month,
+.form-container-cartoes .form-item #exp-year {
   width: 5rem;
 }
-form .form-item #cvc {
+.form-container-cartoes .form-item #cvc {
   width: 6rem;
 }
 
@@ -191,7 +191,7 @@ form .form-item #cvc {
   color: white;
   font-weight: 400;
   letter-spacing: 1px;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 .cards .card-back {
   width: 300px;
@@ -215,12 +215,12 @@ form .form-item #cvc {
   margin-left: 1rem;
 }
 
-.form-input-select{
-    margin: 0;
-    font-weight: 500;
-    font-size: 13px;
-    padding: 0.5rem 92%;
-    /* width: 100%; */
-    border-radius: 5px;
-    color: #21092f;
+.form-input-select {
+  margin: 0;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 0.5rem 92%;
+  /* width: 100%; */
+  border-radius: 5px;
+  color: #21092f;
 }
