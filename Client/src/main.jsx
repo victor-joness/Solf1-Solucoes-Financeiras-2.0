@@ -7,10 +7,12 @@ import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
 
 import authReducer, { loadUser } from "./Features/authSlice";
+import enderecoReducer from "./Features/enderecoSlice";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
+    endereco: enderecoReducer,
   },
 });
 
