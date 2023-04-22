@@ -19,6 +19,8 @@ import NotFound from "../../NotFound/NotFound";
 import { updateUser } from "../../../Features/authSlice";
 import { toast } from "react-toastify";
 
+import { enderecoFetch } from "../../../Features/enderecoSlice";
+
 const Perfil = () => {
   const auth = useSelector((state) => {
     return state.auth;
@@ -121,7 +123,7 @@ const Perfil = () => {
                         validationSchema={validationRegister}
                       >
                         <Form className="OptionsConta-form">
-                        <h2 className="input-name-form">Imagem Usuário</h2>
+                          <h2 className="input-name-form">Imagem Usuário</h2>
                           <input
                             style={{ display: "none" }}
                             type="file"
