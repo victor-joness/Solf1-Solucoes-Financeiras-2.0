@@ -14,16 +14,24 @@ import UserContainer from "../../../Components/UserContainer/UserContainer";
 import OptionsContainer from "../../../Components/OptionsContainer/OptionsContainer";
 import NotFound from "../../NotFound/NotFound";
 
-/* import { updateEndereco } from "../../../Features/authSlice"; */
+import { updateEndereco } from "../../../Features/enderecoSlice";
 import { toast } from "react-toastify";
+
+import { enderecoFetch } from "../../../Features/enderecoSlice";
 
 const Endereco = () => {
   const auth = useSelector((state) => {
     return state.auth;
   });
 
+  const endereco = useSelector((state) => {
+    return state.endereco;
+  });
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  /* dispatch(enderecoFetch(auth.id)); */
 
   useEffect(() => {
     if (auth.id) {
@@ -31,28 +39,23 @@ const Endereco = () => {
     }
   }, [auth.id, navigate]);
 
-  const [endereco, setEndereco] = useState({});
+  //talvez melhorar o scripr de reload
+  if(endereco.id === ""){
+    dispatch(enderecoFetch(auth.id));
+  }
 
-  /* const [user, setUser] = useState({
-    Img: auth.Img,
-    name: auth.name,
-    email: auth.email,
-    celular: auth.celular,
-    password: "",
-  }); */
+/*   const [endereco, setEndereco] = useState({}); */
 
   const handleClickUpdate = async (e) => {
-    //poder ter o update da senha ou nao
-    const endereco = {};
-
-    /* const user = {
+    //poder ter o update do endereco
+    const endereco = {
       id: auth.id,
-      Img: file ? imgUrl : auth.Img,
-      name: e.nome ? e.nome : auth.name,
-      email: e.email ? e.email : auth.email,
-      celular: e.celular ? e.celular : auth.celular,
-      password: e.senha ? e.senha : "",
-    }; */
+      cep: e.cep ? e.cep : "",
+      numero: e.numero ? e.numero : "",
+      bairro: e.bairro ? e.bairro : "",
+      cidade: e.cidade ? e.cidade : "",
+      estado: e.estado ? e.estado : "",
+    };
 
     dispatch(updateEndereco(endereco)).then((res) => {
       toast.success("update com sucesso");
@@ -60,12 +63,12 @@ const Endereco = () => {
   };
 
   const validationEndereco = yup.object().shape({
-    cep: yup.string().min(8, "Seu CEP deve ter pelo menos 8 caracteres"),
+    cep: yup.string().max(8, "Seu CEP deve ter 8 caracteres"),
     rua: yup.string().min(5, "Sua rua deve ter pelo menos 5 caracteres"),
-    numero: yup.string().min(1, "Seu numero deve ter pelo menos 1 caracteres"),
+    numero: yup.string().max(4, "Seu numero deve ter 4 digitos"),
     bairro: yup.string().min(5, "Seu bairro deve ter pelo menos 5 caracteres"),
     cidade: yup.string().min(5, "Sua cidade deve ter pelo menos 5 caracteres"),
-    estado: yup.string().min(2, "Seu estado deve ter pelo menos 2 caracteres"),
+    estado: yup.string().max(2, "Seu estado deve ter 2 caracteres"),
   });
 
   if (auth.token) {
@@ -89,7 +92,7 @@ const Endereco = () => {
 
                       <h3>Atual</h3>
 
-                      <p>{`Estado, Cidade, Cep, Bairro, Numero`}</p>
+                      <p>{`${endereco.estado}, ${endereco.cidade}, ${endereco.cep}, ${endereco.bairro}, ${endereco.numero}`}</p>
 
                       <h3 className="h3-endereco">Deseja fazer alteração? </h3>
                     </div>
@@ -153,7 +156,6 @@ const Endereco = () => {
                               className="form-OptionsConta"
                               placeholder="Bairro"
                               autoComplete="off"
-                              type="password"
                             ></Field>
                             <ErrorMessage
                               component="span"
