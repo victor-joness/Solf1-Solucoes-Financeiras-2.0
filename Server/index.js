@@ -11,12 +11,13 @@ app.use(cors());
 const login = require("./Routes/Login");
 const register = require("./Routes/register");
 const endereco = require("./Routes/Endereco");
-
+const cartoes = require("./Routes/Cartoes");
 
 //endpoints
 app.use("/api/register", register);
 app.use("/api/login", login);
 app.use("/api/endereco", endereco);
+app.use("/api/cartoes", cartoes);
 
 //Multer Storage
 const storage = multer.diskStorage({
