@@ -5,8 +5,12 @@ import "./Cartoes.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
+import { cartoesCreate, cartoesFetch } from "../../../Features/cartoesSlice";
+
 import Navbar from "../../../Components/Navbar/Navbar";
 import Header from "../../../Components/Header/Header";
+
+import { DataGrid } from "@mui/x-data-grid";
 
 const alphabet = "abcdefghijklmnopqrstuvwxyz".split("");
 
@@ -56,6 +60,22 @@ function Form({
     }, 1000);
   }
 
+  const dispatch = useDispatch();
+
+  const auth = useSelector((state) => {
+    return state.auth;
+  });
+
+  const submitCartao = (cartao) => {
+    const CARTAO = {...cartao, cartoesUser: auth.id}
+
+    console.log(CARTAO);
+
+    dispatch(cartoesCreate(CARTAO)).then((res) => {
+      console.log(res);
+    });
+  }
+
   return (
     <form className="form-container-cartoes" name="cc-info-form">
       <div className="form-item-container-esquerda">
@@ -87,7 +107,7 @@ function Form({
           <div className="input-border">
             <input
               className="form-input"
-              type="tel"
+              type="number"
               pattern="[0-9\.]+"
               autoComplete="cc-number"
               maxLength="19"
@@ -105,7 +125,7 @@ function Form({
                 if (e.target.value.trim().length === 0) {
                   setCardNumber("0000 0000 0000 0000");
                 } else {
-                  setCardNumber(e.target.value);
+                  setCardNumber(e.target.value.trim());
                 }
               }}
             />
@@ -124,7 +144,7 @@ function Form({
               <div className="input-border border-m">
                 <input
                   className="form-input"
-                  type="text"
+                  type="number"
                   name="exp-month"
                   id="exp-month"
                   maxLength="2"
@@ -141,7 +161,7 @@ function Form({
               <div className="input-border">
                 <input
                   className="form-input"
-                  type="text"
+                  type="number"
                   name="exp-year"
                   id="exp-year"
                   maxLength="2"
@@ -165,7 +185,7 @@ function Form({
             <div className="input-border">
               <input
                 className="form-input"
-                type="text"
+                type="number"
                 name="cvc"
                 id="cvc"
                 maxLength="3"
@@ -190,7 +210,12 @@ function Form({
           <label htmlFor="cc-tipo">Tipo de Cartão</label>
           <div className="input-border">
             <div id="alvo">
-              <select className="form-input-select" name="opcoes" id="select" onChange={(e) => setCardTipo(e.target.value)}>
+              <select
+                className="form-input-select"
+                name="opcoes"
+                id="select"
+                onChange={(e) => setCardTipo(e.target.value)}
+              >
                 <option value="credito">Crédito</option>
                 <option value="debito">Débito</option>
               </select>
@@ -206,7 +231,7 @@ function Form({
             <input
               className="form-input"
               placeholder="e.g. 1000"
-              type="text"
+              type="number"
               name="cc-limite"
               maxLength="5"
               pattern="[0-9\.]+"
@@ -227,7 +252,7 @@ function Form({
           className="submit-button"
           onClick={(e) => {
             e.preventDefault();
-            console.log(cartao);
+            submitCartao(cartao);
           }}
         >
           Confirm
@@ -242,9 +267,19 @@ const Cartoes = () => {
     return state.auth;
   });
 
+  const cartoes = useSelector((state) => {
+    return state.cartoes;
+  });
+
   const dispatch = useDispatch();
 
-  /* console.log(auth); */
+  useEffect(() => {
+    if (auth.id) {
+      dispatch(cartoesFetch(auth.id)).then((res) => {
+        return 0;
+      });
+    }
+  }, [auth.id, dispatch, cartoesFetch]);
 
   const navigate = useNavigate();
 
@@ -273,6 +308,58 @@ const Cartoes = () => {
     cardLimite: cardLimite,
     cvc: cvc,
   };
+
+  /* const [todascartoesdousuario, setTodascartoesdousuario] = useState([
+    {
+      id: "1",
+      cartoesUser: "15",
+      cartoesNome: "Victor teste",
+      cartoesNumero: "3489472347",
+      cartoesTipo: "Debito",
+      cartoesValidade: "01/24",
+      cartoesLimite: "2000",
+    },
+    {
+      id: "2",
+      cartoesUser: "20",
+      cartoesNome: "Victor teste2",
+      cartoesNumero: "3489472347",
+      cartoesTipo: "Credito",
+      cartoesValidade: "01/24",
+      cartoesLimite: "4000",
+    },
+  ]); */
+
+  const handleDelete = () => {};
+
+  const columns = [
+    { field: "id", headerName: "ID", width: 70 },
+    { field: "cartoesUser", headerName: "ID do User", width: 120 },
+    { field: "cartoesNome", headerName: "Nome do Dono", width: 220 },
+    { field: "cartoesNumero", headerName: "Número", width: 250 },
+    { field: "cartoesTipo", headerName: "Tipo", width: 150 },
+    { field: "cartoesValidade", headerName: "Validade", width: 150 },
+    { field: "cartoesLimite", headerName: "Limite", width: 150 },
+    {
+      field: "Ações",
+      headerName: "Ações",
+
+      sortable: false,
+      width: 180,
+      renderCell: (params) => {
+        return (
+          <div className="actions">
+            <button
+              onClick={() => handleDelete(params.row.id)}
+              className="delete"
+            >
+              Delete
+            </button>
+          </div>
+        );
+      },
+    },
+  ];
 
   return (
     <div className="cartoes-container">
@@ -322,7 +409,27 @@ const Cartoes = () => {
           </div>
         </div>
 
-        <div className="cartoes-container-direita-listagem"></div>
+        <div className="cartoes-container-direita-listagem">
+          <div className="container-table-listagem">
+            <div className="table">
+              <div
+                style={{
+                  height: "40vh",
+                  width: "auto",
+                  fontSize: "1.5rem",
+                }}
+              >
+                <DataGrid
+                  rows={cartoes.cartoes}
+                  columns={columns}
+                  pageSize={10}
+                  rowsPerPageOptions={[10]}
+                  checkboxSelection
+                />
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
