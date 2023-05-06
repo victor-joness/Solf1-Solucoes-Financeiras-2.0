@@ -61,7 +61,6 @@
 
 .OptionsConta--container{
     display: flex;
-    background: var(--preto);
     height: 100%;
 }
 
