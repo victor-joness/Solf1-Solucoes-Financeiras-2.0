@@ -8,11 +8,13 @@ import { Provider } from "react-redux";
 
 import authReducer, { loadUser } from "./Features/authSlice";
 import enderecoReducer from "./Features/enderecoSlice";
+import cartoesReducer from "./Features/cartoesSlice";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     endereco: enderecoReducer,
+    cartoes: cartoesReducer,
   },
 });
 
