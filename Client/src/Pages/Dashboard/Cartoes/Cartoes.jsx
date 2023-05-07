@@ -5,10 +5,12 @@ import "./Cartoes.css";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
-import { cartoesCreate, cartoesFetch } from "../../../Features/cartoesSlice";
+import { cartoesCreate, cartoesFetch,cartoesDelete } from "../../../Features/cartoesSlice";
 
 import Navbar from "../../../Components/Navbar/Navbar";
 import Header from "../../../Components/Header/Header";
+
+import EditCartoes from "../../../Components/Edit/EditCartoes";
 
 import { DataGrid } from "@mui/x-data-grid";
 
@@ -330,7 +332,11 @@ const Cartoes = () => {
     },
   ]); */
 
-  const handleDelete = () => {};
+  const handleDelete = (id) => {
+    dispatch(cartoesDelete(id));
+  };
+
+  const handleUpdate = (id) => {};
 
   const columns = [
     { field: "id", headerName: "ID", width: 70 },
@@ -353,8 +359,10 @@ const Cartoes = () => {
               onClick={() => handleDelete(params.row.id)}
               className="delete"
             >
-              Delete
+              Deletar
             </button>
+
+            <EditCartoes cartoesId={params.row.id}></EditCartoes>
           </div>
         );
       },
