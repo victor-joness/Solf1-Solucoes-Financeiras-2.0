@@ -2,3 +2,157 @@
 .Toastify__toast-body > div:last-child{
     font-size: 1.7rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Todos os edit tem isso */
+
+.edit {
+    border: none;
+    outline: none;
+    padding: 3px 5px;
+    color: white;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: #4b70e2;
+    font-size: 1.8rem;
+  }
+  
+  .MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root form div {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      padding-top: 5px;
+      align-items: center;
+    }
+  
+  .MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root .inputdiv input,.MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root .inputdiv select, .MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root .inputdiv textarea{
+    width: 100%;
+    background-color: rgba(157, 201, 209, 0.315);
+    height: 4rem;
+    font-size: 1.5rem;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+  }
+  
+  .MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root form div label{
+    text-align: center;
+    margin: 0rem 0rem 1rem 0rem;
+  }
+  
+  .CreateProduct {
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+  }
+  
+  .CreateProduct .Image-Preview {
+    margin: 2rem 0 2rem 2rem;
+    padding: 2rem;
+    border: 1px solid rgb(183, 183, 183);
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    color: rgb(78, 78, 78);
+  }
+  
+  .CreateProduct .Image-Preview img {
+    max-width: 100%;
+  }
+  
+  .StyledForm {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin-top: 2rem;
+  }
+  
+  .StyledForm select,
+  .StyledForm input {
+    padding: 7px;
+    min-height: 30px;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid rgb(182, 182, 182);
+    margin: 0.3rem 0;
+  }
+  
+  .StyledForm select:focus,
+  .StyledForm input:focus {
+    border: 2px solid rgb(0, 208, 255);
+  }
+  
+  .PrimaryButton {
+    padding: 9px 12px;
+    border-radius: 5px;
+    font-weight: 400;
+    letter-spacing: 1.15px;
+    background-color: #4b70e2;
+    color: #f9f9f9;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 0.5rem 0;
+  }
+  
+  .css-bdhsul-MuiTypography-root-MuiDialogTitle-root {
+    font-size: 2.2rem !important;
+    text-align: center;
+  }
+  
+  .MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root form div {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root form div label {
+    font-size: 2rem;
+  }
+  
+  .MuiDialogTitle-root + .css-ypiqx9-MuiDialogContent-root form button {
+    display: flex;
+    justify-content: center;
+    width: 30rem;
+    background: var(--verde);
+    color: #fff;
+    padding: 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    margin: 0;
+    font-size: 1.5rem;
+    margin: auto;
+    margin-top: 1rem;
+  }
+  
+  .css-ypiqx9-MuiDialogContent-root {
+    padding: 0px 20px !important;
+  }
+  
+  .css-1e6y48t-MuiButtonBase-root-MuiButton-root {
+    margin: auto !important;
+  }
+  
+  .css-1e6y48t-MuiButtonBase-root-MuiButton-root{
+    font-size: 1.5rem !important;
+  }
