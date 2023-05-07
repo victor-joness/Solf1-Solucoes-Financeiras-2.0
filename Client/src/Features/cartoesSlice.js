@@ -7,6 +7,8 @@ import { toast } from "react-toastify";
 const initialState = {
   cartoes: [],
   status: "",
+  deleteStatus: "",
+  updateStatus: "",
 };
 
 export const cartoesFetch = createAsyncThunk(
@@ -26,11 +28,7 @@ export const cartoesCreate = createAsyncThunk(
   "cartoes/cartoesCreate",
   async (values) => {
     try {
-      const response = await axios.post(
-        `${url}/cartoes`,
-        values,
-        setHeaders()
-      );
+      const response = await axios.post(`${url}/cartoes`, values, setHeaders());
       return response?.data;
     } catch (error) {
       console.log(error);
@@ -39,25 +37,31 @@ export const cartoesCreate = createAsyncThunk(
   }
 );
 
-/* export const updateEndereco = createAsyncThunk(
-  "auth/updateEndereco",
-  async (endereco, { rejectWithValue }) => {
+export const updateCartoes = createAsyncThunk(
+  "cartoes/updateCartoes",
+  async (cartao, { rejectWithValue }) => {
     try {
-      const data = await axios.post(`${url}/endereco`, {
-        id: endereco.id,
-        cidade: endereco.cidade,
-        estado: endereco.estado,
-        cep: endereco.cep,
-        numero: endereco.numero,
-        bairro: endereco.bairro,
-      });
-      return data.data.endereco;
+      const data = await axios.put(`${url}/cartoes`,cartao, setHeaders());
+      return data.data.cartoes;
     } catch (error) {
       console.log(error);
       return rejectWithValue(error.response.data);
     }
   }
-); */
+);
+
+export const cartoesDelete = createAsyncThunk(
+  "cartoes/cartoesDelete",
+  async (id) => {
+    try {
+      const response = await axios.delete(`${url}/cartoes/${id}`, setHeaders());
+      return response?.data;
+    } catch (error) {
+      console.log(error);
+      toast.error(error.response?.data);
+    }
+  }
+);
 
 const cartoesSlice = createSlice({
   name: "cartoes",
@@ -100,12 +104,38 @@ const cartoesSlice = createSlice({
       state.status = "pending";
     },
     [cartoesFetch.fulfilled]: (state, action) => {
-
       state.cartoes = action.payload;
       state.status = "success";
     },
     [cartoesFetch.rejected]: (state, action) => {
       state.status = "rejected";
+    },
+
+    [updateCartoes.pending]: (state, action) => {
+      state.updateStatus = "pending";
+    },
+    [updateCartoes.fulfilled]: (state, action) => {
+      state.updateStatus = "success";
+
+      console.log(state.payload);
+    },
+    [updateCartoes.rejected]: (state, action) => {
+      state.updateStatus = "rejected";
+    },
+
+    [cartoesDelete.pending]: (state, action) => {
+      state.deleteStatus = "pending";
+    },
+    [cartoesDelete.fulfilled]: (state, action) => {
+      const newList = state.cartoes.filter(
+        (doutor) => doutor.id !== action.meta.arg
+      );
+      state.cartoes = newList;
+      state.deleteStatus = "success";
+      toast.error("Cartão Deletado com Sucesso");
+    },
+    [cartoesDelete.rejected]: (state, action) => {
+      state.deleteStatus = "rejected";
     },
   },
 });
