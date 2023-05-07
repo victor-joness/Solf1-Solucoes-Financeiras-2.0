@@ -17,7 +17,7 @@ router.get("/getCartoes/:id", async (req, res) => {
     "SELECT * FROM cartoes WHERE cartoesUser = ?",
     [id],
     (err, result) => {
-      if(err) {
+      if (err) {
         console.log(err);
       }
 
@@ -28,48 +28,50 @@ router.get("/getCartoes/:id", async (req, res) => {
 });
 
 router.post("/", async (req, res) => {
+  const id = req.body.cartoesUser;
+  const cardNumber = req.body.cardNumber;
+  const cardName = req.body.cardName;
+  const cardTipo = req.body.cardTipo;
+  const cardExpMM = req.body.cardExpMM;
+  const cardExpYY = req.body.cardExpYY;
 
-    const id = req.body.cartoesUser;
-    const cardNumber = req.body.cardNumber;
-    const cardName = req.body.cardName;
-    const cardTipo = req.body.cardTipo;
-    const cardExpMM = req.body.cardExpMM;
-    const cardExpYY = req.body.cardExpYY;
+  const validade = cardExpMM + "/" + cardExpYY;
 
-    const validade = cardExpMM + "/" + cardExpYY;
+  const cardLimite = req.body.cardLimite;
+  const cvc = req.body.cvc;
 
-    const cardLimite = req.body.cardLimite;
-    const cvc = req.body.cvc;
+  db.query(
+    "SELECT * FROM cartoes WHERE cartoesNumero = ?",
+    [cardNumber],
+    (err, result) => {
+      if (err) {
+        res.send(err);
+      }
 
-  db.query("SELECT * FROM cartoes WHERE cartoesNumero = ?", [cardNumber], (err, result) => {
-    if (err) {
-      res.send(err);
-    }
-
-    if (result.length > 0) {
+      if (result.length > 0) {
         res.send({
-            msg: "Já Existe um cartão com esse número!",
-            cartoes: {
-                cartoesNumero: result[0].cartoesNumero,
-                cartoesNome: result[0].cartoesNome,
-                cartoesTipo: result[0].cartoesTipo,
-                cartoesValidade: result[0].cartoesValidade,
-                cartoesLimite: result[0].cartoesLimite,
-                cvc: result[0].cartoesCodigo,
-            },
-          });
-    } else {
-      db.query(
-        "INSERT INTO cartoes (cartoesUser, cartoesNome,cartoesNumero, cartoesTipo, cartoesValidade, cartoesLimite, cartoesCodigo) VALUES (?,?,?,?,?,?,?)",
-        [id, cardName, cardNumber, cardTipo, validade, cardLimite, cvc],
-        (error, result) => {
-          if (error) {
-            res.send(error);
-          }
+          msg: "Já Existe um cartão com esse número!",
+          cartoes: {
+            cartoesNumero: result[0].cartoesNumero,
+            cartoesNome: result[0].cartoesNome,
+            cartoesTipo: result[0].cartoesTipo,
+            cartoesValidade: result[0].cartoesValidade,
+            cartoesLimite: result[0].cartoesLimite,
+            cvc: result[0].cartoesCodigo,
+          },
+        });
+      } else {
+        db.query(
+          "INSERT INTO cartoes (cartoesUser, cartoesNome,cartoesNumero, cartoesTipo, cartoesValidade, cartoesLimite, cartoesCodigo) VALUES (?,?,?,?,?,?,?)",
+          [id, cardName, cardNumber, cardTipo, validade, cardLimite, cvc],
+          (error, result) => {
+            if (error) {
+              res.send(error);
+            }
 
-          res.send({
-            msg: "Cartão cadastrado com sucesso!",
-            cartoes: {
+            res.send({
+              msg: "Cartão cadastrado com sucesso!",
+              cartoes: {
                 id: result.insertId,
                 cartoesUser: id,
                 cartoesNumero: cardNumber,
@@ -78,12 +80,84 @@ router.post("/", async (req, res) => {
                 cartoesValidade: validade,
                 cartoesLimite: cardLimite,
                 cvc: cvc,
+              },
+            });
+          }
+        );
+      }
+    }
+  );
+});
+
+router.put("/", async (req, res) => {
+  const id = req.body.id;
+  const idUser = req.body.cartoesUser;
+  const cardNumber = req.body.cardNumber;
+  const cardName = req.body.cardName;
+  const cardTipo = req.body.cardTipo;
+  const cardExpMM = req.body.cardExpMM;
+  const cardExpYY = req.body.cardExpYY;
+
+  const validade = cardExpMM + "/" + cardExpYY;
+
+  const cardLimite = req.body.cardLimite;
+  const cvc = req.body.cvc;
+
+  db.query("SELECT * FROM cartoes WHERE id = ?", [id], (err, result) => {
+    if (err) {
+      res.send(err);
+    }
+
+    if (result.length > 0) {
+      db.query(
+        "UPDATE cartoes SET cartoesUser = ?, cartoesNome = ?, cartoesNumero = ?, cartoesTipo = ?, cartoesValidade = ?, cartoesLimite = ?, cartoesCodigo = ? WHERE id = ?",
+        [idUser, cardName, cardNumber, cardTipo, validade, cardLimite, cvc, id],
+        (error, result) => {
+          if (error) {
+            res.send(error);
+          }
+
+          res.send({
+            msg: "Cartão atualizado com sucesso!",
+            cartoes: {
+              id: result.insertId,
+              cartoesUser: id,
+              cartoesNumero: cardNumber,
+              cartoesNome: cardName,
+              cartoesTipo: cardTipo,
+              cartoesValidade: validade,
+              cartoesLimite: cardLimite,
+              cvc: cvc,
             },
           });
         }
       );
     }
   });
+});
+
+/* delete doutor */
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    db.query("SELECT * FROM cartoes WHERE id = ?", [id], (err, result) => {
+      if (err) {
+        res.send(err);
+      }
+      if (result.length > 0) {
+        db.query("DELETE FROM cartoes WHERE id = ?", [id], (err, result) => {
+          if (err) {
+            res.send(err);
+          } else {
+            res.send({ msg: "Cartão deletado com Sucesso" });
+          }
+        });
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
 });
 
 module.exports = router;
