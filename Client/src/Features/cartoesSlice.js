@@ -40,9 +40,11 @@ export const cartoesCreate = createAsyncThunk(
 export const updateCartoes = createAsyncThunk(
   "cartoes/updateCartoes",
   async (cartao, { rejectWithValue }) => {
+    console.log(cartao);
+
     try {
-      const data = await axios.put(`${url}/cartoes`,cartao, setHeaders());
-      return data.data.cartoes;
+      const data = await axios.post(`${url}/cartoes/${cartao.id}`,cartao, setHeaders());
+      return data.data;
     } catch (error) {
       console.log(error);
       return rejectWithValue(error.response.data);
@@ -68,22 +70,16 @@ const cartoesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    /* [updateEndereco.pending]: (state, action) => {
-      state.status = "pending";
+    [updateCartoes.pending]: (state, action) => {
+      state.updateStatus = "pending";
     },
-    [updateEndereco.fulfilled]: (state, action) => {
-      state.status = "success";
-
-      (state.id = action.payload.id),
-        (state.cidade = action.payload.cidade),
-        (state.estado = action.payload.estado),
-        (state.cep = action.payload.cep),
-        (state.numero = action.payload.numero),
-        (state.bairro = action.payload.bairro);
+    [updateCartoes.fulfilled]: (state, action) => {
+      state.updateStatus = "success";
+      toast.success(action.payload.msg);
     },
-    [updateEndereco.rejected]: (state, action) => {
-      state.status = "rejected";
-    }, */
+    [updateCartoes.rejected]: (state, action) => {
+      state.updateStatus = "rejected";
+    },
     [cartoesCreate.pending]: (state, action) => {
       state.createStatus = "pending";
     },
@@ -110,19 +106,6 @@ const cartoesSlice = createSlice({
     [cartoesFetch.rejected]: (state, action) => {
       state.status = "rejected";
     },
-
-    [updateCartoes.pending]: (state, action) => {
-      state.updateStatus = "pending";
-    },
-    [updateCartoes.fulfilled]: (state, action) => {
-      state.updateStatus = "success";
-
-      console.log(state.payload);
-    },
-    [updateCartoes.rejected]: (state, action) => {
-      state.updateStatus = "rejected";
-    },
-
     [cartoesDelete.pending]: (state, action) => {
       state.deleteStatus = "pending";
     },
