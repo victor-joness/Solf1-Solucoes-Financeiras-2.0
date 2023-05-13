@@ -109,7 +109,7 @@ function Form({
           <div className="input-border">
             <input
               className="form-input"
-              type="number"
+              type="text"
               pattern="[0-9\.]+"
               autoComplete="cc-number"
               maxLength="19"
@@ -146,7 +146,7 @@ function Form({
               <div className="input-border border-m">
                 <input
                   className="form-input"
-                  type="number"
+                  type="text"
                   name="exp-month"
                   id="exp-month"
                   maxLength="2"
@@ -163,7 +163,7 @@ function Form({
               <div className="input-border">
                 <input
                   className="form-input"
-                  type="number"
+                  type="text"
                   name="exp-year"
                   id="exp-year"
                   maxLength="2"
@@ -187,7 +187,7 @@ function Form({
             <div className="input-border">
               <input
                 className="form-input"
-                type="number"
+                type="text"
                 name="cvc"
                 id="cvc"
                 maxLength="3"
@@ -233,7 +233,7 @@ function Form({
             <input
               className="form-input"
               placeholder="e.g. 1000"
-              type="number"
+              type="text"
               name="cc-limite"
               maxLength="5"
               pattern="[0-9\.]+"
