@@ -55,7 +55,7 @@ export default function EditCartoes({ cartoesId }) {
     e.preventDefault();
     console.log(CartaoValue);
 
-    /* dispatch(
+    dispatch(
       updateCartoes({
         cartoesCodigo: CartaoValue.cartoesCodigo,
         cartoesLimite: CartaoValue.cartoesLimite,
@@ -68,13 +68,13 @@ export default function EditCartoes({ cartoesId }) {
         id: CartaoValue.id
       })
     ).then((res) => {
-      if (res.payload.msg == "mudaça feita com sucesso") {
+      if (res.payload.msg == "Cartão atualizado com Sucesso") {
         handleClose();
         setTimeout(() => {
           window.location.reload(false);
-        }, "1000");
+        }, "500");
       }
-    }); */
+    });
   };
 
   return (
