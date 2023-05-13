@@ -89,19 +89,19 @@ router.post("/", async (req, res) => {
   );
 });
 
-router.put("/", async (req, res) => {
+router.post("/:id", async (req, res) => {
   const id = req.body.id;
-  const idUser = req.body.cartoesUser;
-  const cardNumber = req.body.cardNumber;
-  const cardName = req.body.cardName;
-  const cardTipo = req.body.cardTipo;
+  const idCartao = req.body.cartoesUser;
+  const cardNumber = req.body.cartoesNumero;
+  const cardName = req.body.cartoesNome;
+  const cardTipo = req.body.cartoesTipo;
   const cardExpMM = req.body.cardExpMM;
   const cardExpYY = req.body.cardExpYY;
 
   const validade = cardExpMM + "/" + cardExpYY;
 
-  const cardLimite = req.body.cardLimite;
-  const cvc = req.body.cvc;
+  const cardLimite = req.body.cartoesLimite;
+  const cvc = req.body.cartoesCodigo;
 
   db.query("SELECT * FROM cartoes WHERE id = ?", [id], (err, result) => {
     if (err) {
@@ -110,18 +110,27 @@ router.put("/", async (req, res) => {
 
     if (result.length > 0) {
       db.query(
-        "UPDATE cartoes SET cartoesUser = ?, cartoesNome = ?, cartoesNumero = ?, cartoesTipo = ?, cartoesValidade = ?, cartoesLimite = ?, cartoesCodigo = ? WHERE id = ?",
-        [idUser, cardName, cardNumber, cardTipo, validade, cardLimite, cvc, id],
-        (error, result) => {
-          if (error) {
-            res.send(error);
-          }
+        "UPDATE cartoes SET `cartoesUser` = ?, `cartoesNome` = ?, `cartoesNumero` = ?, `cartoesTipo` = ?, `cartoesValidade` = ?, `cartoesLimite` = ?, `cartoesCodigo` = ? WHERE `id` = ?",
+        [
+          idCartao,
+          cardName,
+          cardNumber,
+          cardTipo,
+          validade,
+          cardLimite,
+          cvc,
+          id,
+        ],
 
+        (err, result) => {
+          if (err) {
+            res.send(err);
+          }
           res.send({
-            msg: "Cartão atualizado com sucesso!",
+            msg: "Cartão atualizado com Sucesso",
             cartoes: {
-              id: result.insertId,
-              cartoesUser: id,
+              id: id,
+              cartoesUser: idCartao,
               cartoesNumero: cardNumber,
               cartoesNome: cardName,
               cartoesTipo: cardTipo,
@@ -136,7 +145,7 @@ router.put("/", async (req, res) => {
   });
 });
 
-/* delete doutor */
+/* delete cartao */
 router.delete("/:id", async (req, res) => {
   try {
     const id = req.params.id;
