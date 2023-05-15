@@ -25,7 +25,7 @@ export const updateEndereco = createAsyncThunk(
   "auth/updateEndereco",
   async (endereco, { rejectWithValue }) => {
     try {
-      const data = await axios.post(`${url}/endereco`, {
+      const data = await axios.put(`${url}/endereco`, {
         id: endereco.id,
         cidade: endereco.cidade,
         estado: endereco.estado,
