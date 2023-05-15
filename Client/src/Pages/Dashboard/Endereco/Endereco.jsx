@@ -47,17 +47,22 @@ const Endereco = () => {
 /*   const [endereco, setEndereco] = useState({}); */
 
   const handleClickUpdate = async (e) => {
+    console.log(e);
+    
+    console.log(endereco);
     //poder ter o update do endereco
-    const endereco = {
+    const endereco2 = {
       id: auth.id,
-      cep: e.cep ? e.cep : "",
-      numero: e.numero ? e.numero : "",
-      bairro: e.bairro ? e.bairro : "",
-      cidade: e.cidade ? e.cidade : "",
-      estado: e.estado ? e.estado : "",
+      cep: e.cep ? e.cep : endereco.cep,
+      numero: e.numero ? e.numero : endereco.numero,
+      bairro: e.bairro ? e.bairro : endereco.bairro,
+      cidade: e.cidade ? e.cidade : endereco.cidade,
+      estado: e.estado ? e.estado : endereco.estado,
     };
 
-    dispatch(updateEndereco(endereco)).then((res) => {
+    console.log(endereco2);
+
+    dispatch(updateEndereco(endereco2)).then((res) => {
       toast.success("update com sucesso");
     });
   };
