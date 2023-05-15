@@ -79,8 +79,15 @@ const Perfil = () => {
       password: e.senha ? e.senha : "",
     };
 
+    var token = localStorage.getItem("token");
+
     dispatch(updateUser(user)).then((res) => {
-      toast.success("update com sucesso");
+      if(res.payload == undefined){
+        toast.error("Email já existe no banco ");
+        localStorage.setItem("token", token);
+      }else{
+        toast.success("update com sucesso");
+      }      
     });
   };
 
