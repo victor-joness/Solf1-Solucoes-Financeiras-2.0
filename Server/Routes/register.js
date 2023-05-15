@@ -136,6 +136,7 @@ router.put("/updateUser", async (req, res) => {
           if (error) {
             res.send(error);
           }
+
           res.send({
             msg: "mudaça feita com sucesso",
             user: {
@@ -160,18 +161,6 @@ router.put("/updateUser", async (req, res) => {
         }
       );
     });
-  }
-
-  //fazer as validoes se o email ja existir;
-  if (email) {
-    const id = req.body.id;
-    const name = req.body.name;
-    const email = req.body.email;
-    const celular = req.body.celular;
-    const password = req.body.password;
-    const Img = req.body.Img;
-
-    
   }
 });
 
