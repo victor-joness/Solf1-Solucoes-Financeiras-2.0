@@ -27,7 +27,9 @@ router.get("/getEndereco/:id", async (req, res) => {
   );
 });
 
-router.post("/", async (req, res) => {
+router.put("/", async (req, res) => {
+
+
   const id = req.body.id;
   const cidade = req.body.cidade;
   const estado = req.body.estado;
@@ -35,7 +37,7 @@ router.post("/", async (req, res) => {
   const numero = req.body.numero;
   const bairro = req.body.bairro;
 
-  db.query("SELECT * FROM endereco WHERE id = ?", [id], (err, result) => {
+  db.query("SELECT * FROM endereco WHERE idUsuario = ?", [id], (err, result) => {
     if (err) {
       res.send(err);
     }
@@ -43,7 +45,7 @@ router.post("/", async (req, res) => {
     if (result.length > 0) {
       db.query(
         "UPDATE endereco SET estado = ?, cidade = ?, cep = ?, bairro = ?, numero = ? WHERE id = ?",
-        [estado, cidade, cep, bairro, numero, id],
+        [estado, cidade, cep, bairro, numero, result[0].id],
         (error, result) => {
           if (error) {
             res.send(error);
@@ -52,12 +54,12 @@ router.post("/", async (req, res) => {
           res.send({
             msg: "Endereço atualizado com sucesso!",
             endereco: {
-              id: result[0].id,
-              estado: result[0].estado,
-              cidade: result[0].cidade,
-              cep: result[0].cep,
-              bairro: result[0].bairro,
-              numero: result[0].numero,
+              id: id,
+              estado: estado,
+              cidade: cidade,
+              cep: cep,
+              bairro: bairro,
+              numero: numero,
             },
           });
         }
