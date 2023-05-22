@@ -1,4 +1,5 @@
 import * as c from './styles'
+import React from 'react';
 
 type Props = {
     title: string;
@@ -7,8 +8,8 @@ type Props = {
 }
 
 export const ResumeItem = ({title, value, color}: Props) => {
-    const formatedValue = (value: number) => {
-        let fixedValue = value.toFixed(2);
+    const formatedValue = (value : any) => {
+        let fixedValue = value;
         let formatValue = parseFloat(fixedValue)
         return formatValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     }
