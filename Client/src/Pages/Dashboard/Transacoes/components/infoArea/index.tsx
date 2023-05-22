@@ -3,6 +3,7 @@ import {formatCurrentMonth} from '../../helpers/dateFilter';
 import { ResumeItem } from '../resumeItem';
 import { useAppSelector } from '../../redux/hooks/useAppSelector';
 import { ArrowCircleLeft, ArrowCircleRight } from 'phosphor-react';
+import React from 'react';
 
 type Props = {
     currentMonth: string;
