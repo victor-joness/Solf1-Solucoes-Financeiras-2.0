@@ -12,12 +12,14 @@ import searchReducer from "../src/Pages/Dashboard/Transacoes/redux/reducers/sear
 import authReducer, { loadUser } from "./Features/authSlice";
 import enderecoReducer from "./Features/enderecoSlice";
 import cartoesReducer from "./Features/cartoesSlice";
+import transacoesReducer from "./Features/transacoes";
 
 const store = configureStore({
   reducer: {
     auth: authReducer,
     endereco: enderecoReducer,
     cartoes: cartoesReducer,
+    transacoes: transacoesReducer,
     theme: themeReducer,
     searchItem: searchReducer
   },
