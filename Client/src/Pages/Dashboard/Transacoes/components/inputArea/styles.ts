@@ -64,16 +64,16 @@ export const Container = styled.div<{theme: string}>`
         height: auto;
         padding: 10px;
         color: #fff;
-        border: 2px solid #ccc;
+        border: 2px solid #cccccc;
         border-left 0;
         border-radius: 0px 20px 20px 0px;
         font-weight: bold;
-        background-color: #0089ff;
+        background-color: #40b189;
         outline: 0;
         cursor: pointer;
 
         &:hover {
-            background-color: #0078ee;
+            background-color: #40b189;
         }
     }
 `
