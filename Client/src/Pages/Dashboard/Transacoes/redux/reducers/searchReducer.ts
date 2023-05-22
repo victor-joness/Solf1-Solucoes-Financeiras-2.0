@@ -3,16 +3,16 @@ import { createSlice } from "@reduxjs/toolkit";
 const slice = createSlice({
     name: 'searchItem',
     initialState: {
-        title: '',
-        category: '',
+        titulo: '',
+        categoria: '',
         cartao: '',
     },
     reducers: {
         setTitle: (state, action) => {
-            state.title = action.payload;
+            state.titulo = action.payload;
         },
         setCategory: (state, action) => {
-            state.category = action.payload;
+            state.categoria = action.payload;
         },
         setCartao: (state, action) => {
             state.cartao = action.payload;

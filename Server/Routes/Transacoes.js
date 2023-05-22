@@ -10,36 +10,35 @@ const db = mysql.createConnection({
   database: "solf1",
 });
 
-/* router.get("/getCartoes/:id", async (req, res) => {
+router.get("/getTransacoes/:id", async (req, res) => {
   const id = req.params.id;
 
   db.query(
-    "SELECT * FROM cartoes WHERE cartoesUser = ?",
+    "SELECT * FROM transacoes WHERE idUser = ?",
     [id],
     (err, result) => {
       if (err) {
         console.log(err);
       }
 
-      const cartoes = result;
-      res.status(200).send(cartoes);
+      const transacoes = result;
+      res.status(200).send(transacoes);
     }
   );
-}); */
+});
 
 router.post("/", async (req, res) => {
   const idUser = req.body.idUser;
   const cartao = req.body.cartao;
 
-  let data = req.body.date.split("T")[0];
+ /*  let data = req.body.date.split("T")[0];
   function converterData(data) {
     var partes = data.split("-"); // Divide a string nos separadores "-"
     var novaData = partes[2] + "-" + partes[1] + "-" + partes[0]; // Rearranja as partes da data
     return novaData;
-  }
+  } */
 
-  const dataFormatada = converterData(data);
-
+  const data = req.body.date;
   const titulo = req.body.title;
   const valor = req.body.value;
   const categoria = req.body.category;
@@ -70,7 +69,7 @@ router.post("/", async (req, res) => {
 
   db.query(
     "INSERT INTO transacoes (idUser, titulo,categoria, valor, expense, data, cartao) VALUES (?,?,?,?,?,?,?)",
-    [idUser, titulo, categoria, valor, expense, dataFormatada, cartao],
+    [idUser, titulo, categoria, valor, expense, data, cartao],
     (error, result) => {
       if (error) {
         res.send(error);
@@ -81,7 +80,7 @@ router.post("/", async (req, res) => {
         transacao: {
           idUser: idUser,
           cartao: cartao,
-          data: dataFormatada,
+          data: data,
           titulo: titulo,
           valor: valor,
           expense: expense,

@@ -1,5 +1,5 @@
 export type Item = {
-    date: Date;
+    data: Date;
     title: string;
     value: number;
     category: string;
@@ -8,7 +8,7 @@ export type Item = {
 
 export type Category = {
     [tag: string]: {
-        title: string;
+        titulo: string;
         color: string;
         expense: boolean;
     }

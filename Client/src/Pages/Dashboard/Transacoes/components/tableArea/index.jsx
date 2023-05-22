@@ -1,5 +1,4 @@
 import * as c from "./styles";
-import type { Item } from "../../types/types";
 import { TableItem } from "../tableItem";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,14 +9,9 @@ import {
   setCartao,
 } from "../../redux/reducers/searchReducer";
 
-type Props = {
-  list: Item[];
-  deleteItem: (title: string) => void;
-};
-
-export const TableArea = ({ list, deleteItem }: Props) => {
-  const cartoes = useSelector((state: any) => {
-    return state.cartoes;
+export const TableArea = ({ list, deleteItem }) => {
+  const auth = useSelector((state) => {
+    return state.auth;
   });
 
   const theme = useAppSelector((state) => state.theme);
@@ -27,14 +21,11 @@ export const TableArea = ({ list, deleteItem }: Props) => {
   const [category, setCategorySearch] = useState("");
   const [cartao, setCartaoSearch] = useState("");
 
-  console.log(category);
-  console.log(cartao);
-
   useEffect(() => {
     dispatch(setTitle(title));
     dispatch(setCategory(category));
     dispatch(setCartao(cartao));
-  }, [title, category, cartao]);
+  }, [title, category, cartao, auth.id]);
 
   return (
     <c.Container theme={theme}>

@@ -7,22 +7,25 @@ import { useState, useEffect } from "react";
 import { getCurrentMonth, FilterListByMonth } from "./helpers/dateFilter";
 import { ThemeSwitcher } from "./components/themeSwitcher";
 import { useAppSelector } from "./redux/hooks/useAppSelector";
-import { useSelector, useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../../../Components/Navbar/Navbar";
 import Header from "../../../Components/Header/Header";
 import NotFound from "../../NotFound/NotFound";
 import "./Transacoes.css";
-import { transacaoCreate } from "../../../Features/transacoes";
-
+import { transacaoCreate, transacoesFetch } from "../../../Features/transacoes";
 
 const Transacoes = () => {
   const auth = useSelector((state) => {
     return state.auth;
   });
 
+  const transacoes = useSelector((state) => {
+    return state.transacoes;
+  });
+
   const dispatch = useDispatch();
 
-  const [list, setList] = useState(items);
+  const [list, setList] = useState(transacoes.transacoes);
   const [filteredList, setFilteredList] = useState([]);
   const [currentMonth, setCurrentMonth] = useState(getCurrentMonth());
   const [income, SetIncome] = useState(0);
@@ -35,59 +38,66 @@ const Transacoes = () => {
     setFilteredList(FilterListByMonth(list, currentMonth));
   }, [list, currentMonth]);
 
+  console.log(filteredList);
+  console.log(searchItem);
+
   useEffect(() => {
+    setList(transacoes.transacoes);
     let incomeCount = 0;
     let expenseCount = 0;
 
     for (let i in filteredList) {
       if (
-        searchItem.title === filteredList[i].title &&
-        searchItem.category === filteredList[i].category
+        searchItem.titulo === filteredList[i].titulo &&
+        searchItem.categoria === filteredList[i].categoria
       ) {
-        if (categories[filteredList[i].category].expense) {
-          expenseCount += filteredList[i].value;
+        if (categories[filteredList[i].categoria].expense) {
+          expenseCount += filteredList[i].valor;
         } else {
-          incomeCount += filteredList[i].value;
+          incomeCount += filteredList[i].valor;
         }
-      } else if (searchItem.title === filteredList[i].title) {
-        if (categories[filteredList[i].category].expense) {
-          expenseCount += filteredList[i].value;
+      } else if (searchItem.titulo === filteredList[i].titulo) {
+        if (categories[filteredList[i].categoria].expense) {
+          expenseCount += filteredList[i].valor;
         } else {
-          incomeCount += filteredList[i].value;
+          incomeCount += filteredList[i].valor;
         }
-      } else if (searchItem.category === filteredList[i].category) {
-        if (categories[filteredList[i].category].expense) {
-          expenseCount += filteredList[i].value;
+      } else if (searchItem.categoria === filteredList[i].categoria) {
+        if (categories[filteredList[i].categoria].expense) {
+          expenseCount += filteredList[i].valor;
         } else {
-          incomeCount += filteredList[i].value;
+          incomeCount += filteredList[i].valor;
         }
-      } else if (searchItem.category === "" && searchItem.title === "") {
-        if (categories[filteredList[i].category].expense) {
-          expenseCount += filteredList[i].value;
+      } else if (searchItem.categoria === "" && searchItem.titulo === "") {
+        if (categories[filteredList[i].categoria].expense) {
+          expenseCount += filteredList[i].valor;
         } else {
-          incomeCount += filteredList[i].value;
+          incomeCount += filteredList[i].valor;
         }
       }
     }
 
     SetIncome(incomeCount);
     SetExpense(expenseCount);
-  }, [filteredList, searchItem.title, searchItem.category]);
+    console.log(incomeCount);
+  }, [filteredList, searchItem.titulo, searchItem.categoria]);
+
+  console.log(list);
 
   const handleMonthChange = (newMonth) => {
     setCurrentMonth(newMonth);
   };
 
   const handleAddItem = (item) => {
-    dispatch(transacaoCreate({idUser: auth.id,...item}))
+    dispatch(transacaoCreate({ idUser: auth.id, ...item }));
     let newList = [...list];
     newList.push(item);
     setList(newList);
   };
 
-  const handleDeleteItem = (title) => {
+  const handleDeleteItem = (titulo) => {
     let newlist = list.filter((item) => {
-      if (item.title !== title) return item;
+      if (item.titulo !== titulo) return item;
     });
 
     setList(newlist);

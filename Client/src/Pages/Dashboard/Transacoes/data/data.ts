@@ -14,13 +14,13 @@ export const items: Item[] = [
 ];
 
 export const categories: Category = {
-    food: { title: 'Alimentação', color: '#0000ff', expense: true },
-    rent: { title: 'Aluguel', color: '#ff0000', expense: true },
-    cloats: { title: 'Roupas', color: '#06d5f9', expense: true },
-    salary: { title: 'Salário', color: '#008000', expense: false },
-    tax: {title: 'Impostos', color: '#ff0000', expense: true },
-    profit: {title: 'Lucros', color: '#008000', expense: false },
-    velhice: {title: 'veiculos', color: '#ffff00', expense: true },
-    investments: {title: 'Investimentos', color: '#000080', expense: true },
-    services: {title: 'Serviços', color: '#ff6913', expense: true }
+    food: { titulo: 'Alimentação', color: '#0000ff', expense: true },
+    rent: { titulo: 'Aluguel', color: '#ff0000', expense: true },
+    cloats: { titulo: 'Roupas', color: '#06d5f9', expense: true },
+    salary: { titulo: 'Salário', color: '#008000', expense: false },
+    tax: {titulo: 'Impostos', color: '#ff0000', expense: true },
+    profit: {titulo: 'Lucros', color: '#008000', expense: false },
+    velhice: {titulo: 'veiculos', color: '#ffff00', expense: true },
+    investments: {titulo: 'Investimentos', color: '#000080', expense: true },
+    services: {titulo: 'Serviços', color: '#ff6913', expense: true }
 };

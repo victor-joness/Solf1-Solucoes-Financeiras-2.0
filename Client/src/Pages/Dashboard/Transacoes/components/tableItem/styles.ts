@@ -4,6 +4,7 @@ export const TableLine = styled.tr``;
 
 export const TableColumn = styled.td`
     padding: 10px 5px;
+  
 
     &:last-child {
         width: 25px;
