@@ -2,7 +2,10 @@ import  * as c from './styles';
 import {formatCurrentMonth} from '../../helpers/dateFilter';
 import { ResumeItem } from '../resumeItem';
 import { useAppSelector } from '../../redux/hooks/useAppSelector';
-import { ArrowCircleLeft, ArrowCircleRight } from 'phosphor-react';
+
+import {HiOutlineArrowCircleLeft, HiOutlineArrowCircleRight} from "react-icons/hi";
+
+
 import React from 'react';
 
 type Props = {
@@ -32,11 +35,11 @@ export const InfoArea = ({currentMonth, onMonthChange, income, expense,}: Props)
         <c.Container theme={theme}>
             <c.MonthArea theme={theme}>
                 <c.MonthArrow onClick={handlePrevMonth}>
-                    <ArrowCircleLeft size={25} weight="bold" />
+                    <HiOutlineArrowCircleLeft size={30} />
                 </c.MonthArrow>
                 <c.MonthTitle>{formatCurrentMonth(currentMonth)}</c.MonthTitle>
                 <c.MonthArrow onClick={handleNextMonth}>
-                    <ArrowCircleRight size={25} weight="bold" />
+                    <HiOutlineArrowCircleRight size={30} />
                 </c.MonthArrow>
             </c.MonthArea>
             <c.ResumeArea>

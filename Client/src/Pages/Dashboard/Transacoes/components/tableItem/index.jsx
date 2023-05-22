@@ -1,18 +1,12 @@
 import * as c from './styles';
-/* import type { Item } from '../../types/types';
-import {  } from 'a./../helpers/dateFilter'; */
 import { categories } from '../../data/data';
 import { useAppSelector } from '../../redux/hooks/useAppSelector';
-import { Pencil, Trash } from 'phosphor-react';
+
+import {BiTrash, BiPencil} from "react-icons/bi";
+
 import React from 'react';
 
 import "./tableItem.css";
-
-/* type Props = {
-    item: Item;
-    handleDeleteItem: (itemTilte: string) => void;
-} */
-
 export const TableItem = ({ item, handleDeleteItem }) => {
     const searchItem = useAppSelector(state => state.searchItem);
 
@@ -51,12 +45,12 @@ export const TableItem = ({ item, handleDeleteItem }) => {
                     </c.TableColumn>
                     <c.TableColumn>
                         <div className='icon'>
-                            <Pencil size={25} weight="regular"/>
+                            <BiPencil size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                     <c.TableColumn>
                         <div onClick={() => deleteItem(item)} className='icon'>
-                            <Trash size={25} weight="regular"/>
+                            <BiTrash size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                 </c.TableLine>
@@ -77,12 +71,12 @@ export const TableItem = ({ item, handleDeleteItem }) => {
                     </c.TableColumn>
                     <c.TableColumn>
                         <div className='icon'>
-                            <Pencil size={25} weight="regular"/>
+                            <BiPencil size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                     <c.TableColumn>
                         <div onClick={() => deleteItem(item)} className='icon'>
-                            <Trash size={25} weight="regular"/>
+                            <BiTrash size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                 </c.TableLine>
@@ -103,12 +97,12 @@ export const TableItem = ({ item, handleDeleteItem }) => {
                     </c.TableColumn>
                     <c.TableColumn>
                         <div className='icon'>
-                            <Pencil size={25} weight="regular"/>
+                            <BiPencil size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                     <c.TableColumn>
                         <div onClick={() => deleteItem(item)} className='icon'>
-                            <Trash size={25} weight="regular"/>
+                            <BiTrash size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                 </c.TableLine>
@@ -129,12 +123,12 @@ export const TableItem = ({ item, handleDeleteItem }) => {
                     </c.TableColumn>
                     <c.TableColumn>
                         <div className='icon'>
-                            <Pencil size={25} weight="regular"/>
+                            <BiPencil size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                     <c.TableColumn>
                         <div onClick={() => deleteItem(item)} className='icon'>
-                            <Trash size={25} weight="regular"/>
+                            <BiTrash size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                 </c.TableLine>
@@ -155,12 +149,12 @@ export const TableItem = ({ item, handleDeleteItem }) => {
                     </c.TableColumn>
                     <c.TableColumn>
                         <div className='icon'>
-                            <Pencil size={25} weight="regular"/>
+                            <BiPencil size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                     <c.TableColumn>
                         <div onClick={() => deleteItem(item)} className='icon'>
-                            <Trash size={25} weight="regular"/>
+                            <BiTrash size={25} weight="regular"/>
                         </div>
                     </c.TableColumn>
                 </c.TableLine>

@@ -24,7 +24,7 @@ export const InputArea = ({ onAdd }: Props) => {
 
   const handleAddEvent = () => {
     let newItem = {
-      date: new Date(date),
+      data: new Date(date),
       category: category,
       title: title,
       value: parseInt(value),
