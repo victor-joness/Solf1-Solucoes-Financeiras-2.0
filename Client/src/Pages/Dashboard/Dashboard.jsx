@@ -11,6 +11,7 @@ import UserContainer from "../../Components/UserContainer/UserContainer";
 import OptionsContainer from "../../Components/OptionsContainer/OptionsContainer";
 
 import { enderecoFetch } from "../../Features/enderecoSlice";
+import { transacoesFetch } from "../../Features/transacoes";
 
 const Dashboard = () => {
   const auth = useSelector((state) => {
@@ -26,6 +27,7 @@ const Dashboard = () => {
     }
   }, [auth.id, navigate]);
 
+  dispatch(transacoesFetch(auth.id));
   dispatch(enderecoFetch(auth.id));
 
   if (auth.token) {
