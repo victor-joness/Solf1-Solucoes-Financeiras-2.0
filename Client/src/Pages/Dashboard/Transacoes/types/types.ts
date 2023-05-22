@@ -3,6 +3,7 @@ export type Item = {
     title: string;
     value: number;
     category: string;
+    cartao: string;
 };
 
 export type Category = {
