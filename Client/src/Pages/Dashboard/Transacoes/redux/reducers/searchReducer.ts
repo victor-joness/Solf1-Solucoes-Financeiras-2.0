@@ -4,7 +4,8 @@ const slice = createSlice({
     name: 'searchItem',
     initialState: {
         title: '',
-        category: ''
+        category: '',
+        cartao: '',
     },
     reducers: {
         setTitle: (state, action) => {
@@ -12,11 +13,14 @@ const slice = createSlice({
         },
         setCategory: (state, action) => {
             state.category = action.payload;
+        },
+        setCartao: (state, action) => {
+            state.cartao = action.payload;
         }
     }
 })
 
-export const { setTitle, setCategory } = slice.actions;
+export const { setTitle, setCategory, setCartao } = slice.actions;
 export default slice.reducer;
 
 // 1 - State é o dado inicial
