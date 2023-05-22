@@ -4,6 +4,7 @@ import { formatDate } from '../../helpers/dateFilter';
 import { categories } from '../../data/data';
 import { useAppSelector } from '../../redux/hooks/useAppSelector';
 import { Pencil, Trash } from 'phosphor-react';
+import React from 'react';
 
 type Props = {
     item: Item;
@@ -34,6 +35,7 @@ export const TableItem = ({ item, handleDeleteItem }: Props) => {
                         </c.Category>
                     </c.TableColumn>
                     <c.TableColumn>{item.title}</c.TableColumn>
+                    <c.TableColumn>{item.cartao}</c.TableColumn>
                     <c.TableColumn>
                         <c.Value color={categories[item.category].expense ? '#ff0000' : '#008000'}>
                             {formatedValue(item.value)}
@@ -59,6 +61,7 @@ export const TableItem = ({ item, handleDeleteItem }: Props) => {
                         </c.Category>
                     </c.TableColumn>
                     <c.TableColumn>{item.title}</c.TableColumn>
+                    <c.TableColumn>{item.cartao}</c.TableColumn>
                     <c.TableColumn>
                         <c.Value color={categories[item.category].expense ? '#ff0000' : '#008000'}>
                             {formatedValue(item.value)}
@@ -84,6 +87,7 @@ export const TableItem = ({ item, handleDeleteItem }: Props) => {
                         </c.Category>
                     </c.TableColumn>
                     <c.TableColumn>{item.title}</c.TableColumn>
+                    <c.TableColumn>{item.cartao}</c.TableColumn>
                     <c.TableColumn>
                         <c.Value color={categories[item.category].expense ? '#ff0000' : '#008000'}>
                             {formatedValue(item.value)}
@@ -109,6 +113,33 @@ export const TableItem = ({ item, handleDeleteItem }: Props) => {
                         </c.Category>
                     </c.TableColumn>
                     <c.TableColumn>{item.title}</c.TableColumn>
+                    <c.TableColumn>{item.cartao}</c.TableColumn>
+                    <c.TableColumn>
+                        <c.Value color={categories[item.category].expense ? '#ff0000' : '#008000'}>
+                            {formatedValue(item.value)}
+                        </c.Value>
+                    </c.TableColumn>
+                    <c.TableColumn>
+                        <div className='icon'>
+                            <Pencil size={25} weight="regular"/>
+                        </div>
+                    </c.TableColumn>
+                    <c.TableColumn>
+                        <div onClick={() => deleteItem(item)} className='icon'>
+                            <Trash size={25} weight="regular"/>
+                        </div>
+                    </c.TableColumn>
+                </c.TableLine>
+            } {searchItem.cartao === item.cartao && searchItem.title === item.title &&
+                <c.TableLine>
+                    <c.TableColumn>{formatDate(item.date)}</c.TableColumn>
+                    <c.TableColumn>
+                        <c.Category color={categories[item.category].color} >
+                            {categories[item.category].title}
+                        </c.Category>
+                    </c.TableColumn>
+                    <c.TableColumn>{item.title}</c.TableColumn>
+                    <c.TableColumn>{item.cartao}</c.TableColumn>
                     <c.TableColumn>
                         <c.Value color={categories[item.category].expense ? '#ff0000' : '#008000'}>
                             {formatedValue(item.value)}
