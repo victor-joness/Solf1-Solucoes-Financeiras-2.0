@@ -12,12 +12,14 @@ const login = require("./Routes/Login");
 const register = require("./Routes/register");
 const endereco = require("./Routes/Endereco");
 const cartoes = require("./Routes/Cartoes");
+const transacoes = require("./Routes/Transacoes");
 
 //endpoints
 app.use("/api/register", register);
 app.use("/api/login", login);
 app.use("/api/endereco", endereco);
 app.use("/api/cartoes", cartoes);
+app.use("/api/transacoes", transacoes);
 
 //Multer Storage
 const storage = multer.diskStorage({
