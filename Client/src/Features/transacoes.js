@@ -11,17 +11,17 @@ const initialState = {
   updateStatus: "",
 };
 
-/* export const cartoesFetch = createAsyncThunk(
-  "cartoes/cartoesFetch",
-  async (user) => {
+export const transacoesFetch = createAsyncThunk(
+  "transacoes/transacoesFetch",
+  async (id) => {
     const response = await axios.get(
-      `${url}/cartoes/getCartoes/${user}`,
+      `${url}/transacoes/getTransacoes/${id}`,
       setHeaders()
     );
 
     return response.data;
   }
-); */
+);
 
 //axios fazendo a resuisinção da api, ele vai enviar os valores que eu recebo dos input pra api, na api ele vai salvar no banco de dados.
 export const transacaoCreate = createAsyncThunk(
@@ -90,6 +90,17 @@ const cartoesSlice = createSlice({
     },
     [transacaoCreate.rejected]: (state, action) => {
       state.createStatus = "rejected";
+    },
+
+    [transacoesFetch.pending]: (state, action) => {
+      state.status = "pending";
+    },
+    [transacoesFetch.fulfilled]: (state, action) => {
+      state.transacoes = action.payload;
+      state.status = "success";
+    },
+    [transacoesFetch.rejected]: (state, action) => {
+      state.status = "rejected";
     },
 
     /* [cartoesFetch.pending]: (state, action) => {
