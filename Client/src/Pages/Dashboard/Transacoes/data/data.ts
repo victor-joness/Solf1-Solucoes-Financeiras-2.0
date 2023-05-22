@@ -2,15 +2,15 @@ import type { Item } from "../types/types"
 import type { Category } from "../types/types"
 
 export const items: Item[] = [
-    {date: new Date(2022, 3, 1), category: 'salary', title: 'Sálario', value: 5000},
-    {date: new Date(2022, 3, 1), category: 'food', title: 'Compras do mês', value: 500},
-    {date: new Date(2022, 3, 1), category: 'rent', title: 'Aluguel', value: 1000},
-    {date: new Date(2022, 3, 1), category: 'cloats', title: 'Roupas Novas', value: 500},
-    {date: new Date(2022, 3, 1), category: 'profit', title: 'Dividendos', value: 750},
-    {date: new Date(2022, 3, 1), category: 'velhice', title: 'Combustivel', value: 300},
-    {date: new Date(2022, 3, 1), category: 'tax', title: 'Imposto de Renda', value: 750},
-    {date: new Date(2022, 3, 1), category: 'investments', title: 'Acões', value: 2000},
-    {date: new Date(2022, 3, 1), category: 'services', title: 'Conta de luz e água', value: 400}
+    {date: new Date(2022, 3, 1), category: 'salary', title: 'Sálario', cartao: "teste", value: 5000},
+    {date: new Date(2022, 3, 1), category: 'food', title: 'Compras do mês',cartao: "teste", value: 500},
+    {date: new Date(2022, 3, 1), category: 'rent', title: 'Aluguel',cartao: "teste", value: 1000},
+    {date: new Date(2022, 3, 1), category: 'cloats', title: 'Roupas Novas',cartao: "teste", value: 500},
+    {date: new Date(2022, 3, 1), category: 'profit', title: 'Dividendos',cartao: "teste", value: 750},
+    {date: new Date(2022, 3, 1), category: 'velhice', title: 'Combustivel',cartao: "teste", value: 300},
+    {date: new Date(2022, 3, 1), category: 'tax', title: 'Imposto de Renda',cartao: "teste", value: 750},
+    {date: new Date(2022, 3, 1), category: 'investments', title: 'Acões',cartao: "teste", value: 2000},
+    {date: new Date(2022, 3, 1), category: 'services', title: 'Conta de luz e água',cartao: "teste", value: 400}
 ];
 
 export const categories: Category = {
