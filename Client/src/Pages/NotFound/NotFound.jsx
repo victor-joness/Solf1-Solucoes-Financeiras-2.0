@@ -8,6 +8,9 @@ const NotFound = () => {
 
   const handleCLickHomepage = () => {
     navigate("/");
+    setTimeout(() => {
+      window.location.reload(false);
+    }, "500");
   };
 
   return (
