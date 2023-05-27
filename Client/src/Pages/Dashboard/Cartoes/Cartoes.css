@@ -64,6 +64,11 @@
   flex-direction: column;
 }
 
+.form-item-container-direita-part2 {
+  display: flex;
+  flex-direction: column;
+}
+
 .form-container-cartoes .submit-button {
   margin-top: 3rem;
   padding: 0.7rem 0.6rem;
