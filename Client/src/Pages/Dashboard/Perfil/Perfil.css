@@ -45,6 +45,37 @@
     margin-top: 2rem;
 }
 
+.button-deletar-conta{
+    height: 5rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    line-height: 4.7rem;
+    background: red;
+    color: #fff;
+    width: 15rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid #fff;
+    cursor: pointer;
+    margin: 0 auto;
+}
+
+.button-deletar-conta:hover{
+    border: 0.1rem solid black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
