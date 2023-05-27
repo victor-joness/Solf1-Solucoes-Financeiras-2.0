@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 import { url } from "./api";
 import jwtDecode from "jwt-decode";
+import { setHeaders } from "./api";
 
 const initialState = {
   token: localStorage.getItem("token"),
@@ -82,6 +83,19 @@ export const updateUser = createAsyncThunk(
     } catch (error) {
       console.log(error.response.data);
       return rejectWithValue(error.response.data);
+    }
+  }
+);
+
+export const userDelete = createAsyncThunk(
+  "auth/userDelete",
+  async (id) => {
+    try {
+      const response = await axios.delete(`${url}/register/${id}`, setHeaders());
+      localStorage.setItem("token", "");
+      return response?.data;
+    } catch (error) {
+      console.log(error);
     }
   }
 );
@@ -225,6 +239,29 @@ const authSlice = createSlice({
       return {
         ...state,
         updateStatus: "rejected",
+        updateError: action.payload,
+      };
+    });
+
+    builder.addCase(userDelete.pending, (state, action) => {
+      return { ...state, deleteStatus: "pending" };
+    });
+
+    builder.addCase(userDelete.fulfilled, (state, action) => {
+      if (action.payload) {
+        return {
+          msg: action.payload,
+          deleteStatus: "success",
+        };
+      } else {
+        return state;
+      }
+    });
+
+    builder.addCase(userDelete.rejected, (state, action) => {
+      return {
+        ...state,
+        deleteStatus: "rejected",
         updateError: action.payload,
       };
     });
