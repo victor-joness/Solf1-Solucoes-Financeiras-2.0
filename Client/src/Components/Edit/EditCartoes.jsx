@@ -17,6 +17,8 @@ export default function EditCartoes({ cartoesId }) {
     cartoesNome : "" ,
     cartoesNumero: "",
     cartoesTipo: "",
+    cartoesBandeira: "",
+    cartoesValoratual: "",
     cartoesUser: "",
     cardExpMM: "",
     cardExpYY: "",
@@ -62,7 +64,9 @@ export default function EditCartoes({ cartoesId }) {
         cartoesNome : CartaoValue.cartoesNome ,
         cartoesNumero: CartaoValue.cartoesNumero,
         cartoesTipo: CartaoValue.cartoesTipo,
+        cartoesBandeira: CartaoValue.cartoesBandeira,
         cartoesUser: CartaoValue.cartoesUser,
+        cartoesValoratual: CartaoValue.cartoesValoratual,
         cardExpMM: CartaoValue.cardExpMM,
         cardExpYY: CartaoValue.cardExpYY,
         id: CartaoValue.id
@@ -194,10 +198,40 @@ export default function EditCartoes({ cartoesId }) {
               </div>
             </div>
             <div>
+              <label>Bandeira</label>
+              <div className="inputdiv">
+                <input
+                  type="text"
+                  placeholder="Bandeira do cartão"
+                  name="cartoesBandeira"
+                  value={CartaoValue.cartoesBandeira}
+                  onChange={(e) =>
+                    HandleCartoesChange(e.target.name, e.target.value)
+                  }
+                  required
+                />
+              </div>
+            </div>
+            <div>
+              <label>Valor Atual</label>
+              <div className="inputdiv">
+                <input
+                  type="text"
+                  placeholder="Valor atual do Cartao"
+                  name="cartoesValoratual"
+                  value={CartaoValue.cartoesValoratual}
+                  onChange={(e) =>
+                    HandleCartoesChange(e.target.name, e.target.value)
+                  }
+                  required
+                />
+              </div>
+            </div>
+            <div>
               <label>CVC</label>
               <div className="inputdiv">
                 <input
-                  type="number"
+                  type="text"
                   placeholder="CVC"
                   name="cartoesCodigo"
                   maxLength={3}
