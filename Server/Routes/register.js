@@ -164,4 +164,39 @@ router.put("/updateUser", async (req, res) => {
   }
 });
 
+router.delete("/:id", async (req, res) => {
+  try {
+    const id = req.params.id;
+    db.query("DELETE FROM usuarios WHERE id = ?", [id], (err, result) => {
+      if (err) {
+        res.send(err);
+      } else {
+        db.query("DELETE FROM endereco WHERE idUsuario = ?", [id], (err, result) => {
+          if (err) {
+            res.send(err);
+          } else {
+            db.query("DELETE FROM transacoes WHERE idUser = ?", [id], (err, result) => {
+              if (err) {
+                res.send(err);
+              } else {
+                db.query("DELETE FROM cartoes WHERE cartoesUser = ?", [id], (err, result) => {
+                  if (err) {
+                    res.send(err);
+                  } else {
+                    res.send({ msg: "User deletado com Sucesso" });
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error);
+  }
+});
+
+
 module.exports = router;
