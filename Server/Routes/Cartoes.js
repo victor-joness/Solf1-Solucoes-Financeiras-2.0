@@ -35,6 +35,8 @@ router.post("/", async (req, res) => {
   const cardExpMM = req.body.cardExpMM;
   const cardExpYY = req.body.cardExpYY;
 
+  const cardBandeira = req.body.cardBandeira;
+
   const validade = cardExpMM + "/" + cardExpYY;
 
   const cardLimite = req.body.cardLimite;
@@ -57,13 +59,15 @@ router.post("/", async (req, res) => {
             cartoesTipo: result[0].cartoesTipo,
             cartoesValidade: result[0].cartoesValidade,
             cartoesLimite: result[0].cartoesLimite,
+            cartoesBandeira: result[0].cartoesBandeira,
+            cartoesValoratual: result[0].cartoesValoratual,
             cvc: result[0].cartoesCodigo,
           },
         });
       } else {
         db.query(
-          "INSERT INTO cartoes (cartoesUser, cartoesNome,cartoesNumero, cartoesTipo, cartoesValidade, cartoesLimite, cartoesCodigo) VALUES (?,?,?,?,?,?,?)",
-          [id, cardName, cardNumber, cardTipo, validade, cardLimite, cvc],
+          "INSERT INTO cartoes (cartoesUser, cartoesNome,cartoesNumero, cartoesTipo, cartoesValidade,cartoesBandeira, cartoesLimite,cartoesValoratual, cartoesCodigo) VALUES (?,?,?,?,?,?,?,?,?)",
+          [id, cardName, cardNumber, cardTipo, validade, cardBandeira,cardLimite,0, cvc],
           (error, result) => {
             if (error) {
               res.send(error);
@@ -79,6 +83,8 @@ router.post("/", async (req, res) => {
                 cartoesTipo: cardTipo,
                 cartoesValidade: validade,
                 cartoesLimite: cardLimite,
+                cartoesBandeira: cardBandeira,
+                cartoesValoratual: 0,
                 cvc: cvc,
               },
             });
@@ -89,6 +95,13 @@ router.post("/", async (req, res) => {
   );
 });
 
+
+//fazer um update que muda somente o cardValoratual do cartao, que vai ser usado quando eu adicionar uma nova despesa com aquele cartao;
+
+
+
+
+
 router.post("/:id", async (req, res) => {
   const id = req.body.id;
   const idCartao = req.body.cartoesUser;
@@ -97,6 +110,9 @@ router.post("/:id", async (req, res) => {
   const cardTipo = req.body.cartoesTipo;
   const cardExpMM = req.body.cardExpMM;
   const cardExpYY = req.body.cardExpYY;
+
+  const cardBandeira = req.body.cartoesBandeira;
+  const cardValoratual = req.body.cartoesValoratual;
 
   const validade = cardExpMM + "/" + cardExpYY;
 
@@ -110,14 +126,16 @@ router.post("/:id", async (req, res) => {
 
     if (result.length > 0) {
       db.query(
-        "UPDATE cartoes SET `cartoesUser` = ?, `cartoesNome` = ?, `cartoesNumero` = ?, `cartoesTipo` = ?, `cartoesValidade` = ?, `cartoesLimite` = ?, `cartoesCodigo` = ? WHERE `id` = ?",
+        "UPDATE cartoes SET `cartoesUser` = ?, `cartoesNome` = ?, `cartoesNumero` = ?, `cartoesTipo` = ?, `cartoesValidade` = ?, `cartoesBandeira` = ?, `cartoesLimite` = ?,`cartoesValoratual` = ?, `cartoesCodigo` = ? WHERE `id` = ?",
         [
           idCartao,
           cardName,
           cardNumber,
           cardTipo,
           validade,
+          cardBandeira,
           cardLimite,
+          cardValoratual,
           cvc,
           id,
         ],
@@ -135,7 +153,9 @@ router.post("/:id", async (req, res) => {
               cartoesNome: cardName,
               cartoesTipo: cardTipo,
               cartoesValidade: validade,
+              cartoesBandeira: cardBandeira,
               cartoesLimite: cardLimite,
+              cartoesValoratual: cardValoratual,
               cvc: cvc,
             },
           });
