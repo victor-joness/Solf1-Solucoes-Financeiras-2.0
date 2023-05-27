@@ -16,10 +16,8 @@ import UserContainer from "../../../Components/UserContainer/UserContainer";
 import OptionsContainer from "../../../Components/OptionsContainer/OptionsContainer";
 import NotFound from "../../NotFound/NotFound";
 
-import { updateUser } from "../../../Features/authSlice";
+import { updateUser, userDelete} from "../../../Features/authSlice";
 import { toast } from "react-toastify";
-
-import { enderecoFetch } from "../../../Features/enderecoSlice";
 
 const Perfil = () => {
   const auth = useSelector((state) => {
@@ -82,12 +80,12 @@ const Perfil = () => {
     var token = localStorage.getItem("token");
 
     dispatch(updateUser(user)).then((res) => {
-      if(res.payload == undefined){
+      if (res.payload == undefined) {
         toast.error("Email já existe no banco ");
         localStorage.setItem("token", token);
-      }else{
+      } else {
         toast.success("update com sucesso");
-      }      
+      }
     });
   };
 
@@ -100,6 +98,10 @@ const Perfil = () => {
       .max(11),
     senha: yup.string().min(6, "Sua senha deve ter pelo menos 6 caracteres"),
   });
+
+  const deletarConta = () => {
+    dispatch(userDelete(auth.id));
+  };
 
   if (auth.token) {
     return (
@@ -209,9 +211,13 @@ const Perfil = () => {
                           >
                             Salvar mudança
                           </button>
+                          <button href="" type="button" className="button-deletar-conta" onClick={deletarConta}>
+                            Deletar Conta
+                          </button>
                         </Form>
                       </Formik>
                     </div>
+                    
                   </div>
                 </div>
               </div>
