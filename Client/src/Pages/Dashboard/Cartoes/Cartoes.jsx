@@ -42,6 +42,7 @@ function randomIntFromInterval(min, max) {
 
 function Form({
   setCardNumber,
+  setCardBandeira,
   setCardName,
   setCardTipo,
   setCardLimite,
@@ -218,8 +219,8 @@ function Form({
                 id="select"
                 onChange={(e) => setCardTipo(e.target.value)}
               >
-                <option value="credito">Crédito</option>
-                <option value="debito">Débito</option>
+                <option value="Credito">Crédito</option>
+                <option value="Debito">Débito</option>
               </select>
             </div>
           </div>
@@ -260,6 +261,30 @@ function Form({
           Confirm
         </button>
       </div>
+
+      <div className="form-item-container-direita-part2">
+        {/*Item 1*/}
+        <div className="form-item">
+          <label htmlFor="cc-bandeira">bandeira</label>
+          <div className="input-border">
+            <input
+              className="form-input"
+              placeholder="Master-card"
+              type="text"
+              name="cc-bandeira"
+              id="cc-bandeira"
+              onChange={(e) => {
+                if (e.target.value.trim() === "") {
+                  setCardBandeira("Master-card");
+                }else {
+                  setCardBandeira(e.target.value);
+                }
+              }}
+            />
+          </div>
+        </div>
+        {/*End Item 1*/}
+      </div>
     </form>
   );
 }
@@ -298,6 +323,7 @@ const Cartoes = () => {
   const [cardExpMM, setCardExpMM] = React.useState("00/");
   const [cardExpYY, setCardExpYY] = React.useState("00");
   const [cardLimite, setCardLimite] = React.useState("1000");
+  const [cardBandeira, setCardBandeira] = React.useState("Master-card");
 
   const [cvc, setCVC] = React.useState("000");
 
@@ -308,6 +334,7 @@ const Cartoes = () => {
     cardExpMM: cardExpMM,
     cardExpYY: cardExpYY,
     cardLimite: cardLimite,
+    cardBandeira: cardBandeira,
     cvc: cvc,
   };
 
@@ -344,8 +371,10 @@ const Cartoes = () => {
     { field: "cartoesNome", headerName: "Nome do Dono", width: 220 },
     { field: "cartoesNumero", headerName: "Número", width: 250 },
     { field: "cartoesTipo", headerName: "Tipo", width: 150 },
-    { field: "cartoesValidade", headerName: "Validade", width: 150 },
-    { field: "cartoesLimite", headerName: "Limite", width: 150 },
+    { field: "cartoesValidade", headerName: "Validade", width: 100 },
+    { field: "cartoesLimite", headerName: "Limite", width: 100 },
+    { field: "cartoesValoratual", headerName: "Valor Atual", width: 150 },
+    { field: "cartoesBandeira", headerName: "Bandeira", width: 150 },
     {
       field: "Ações",
       headerName: "Ações",
@@ -411,6 +440,7 @@ const Cartoes = () => {
               setCardLimite={setCardLimite}
               setCardExpMM={setCardExpMM}
               setCardExpYY={setCardExpYY}
+              setCardBandeira={setCardBandeira}
               setCVC={setCVC}
               cartao={cartao}
             />
