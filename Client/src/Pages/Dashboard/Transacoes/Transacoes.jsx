@@ -5,7 +5,6 @@ import { InputArea } from "./components/inputArea";
 import { categories, items } from "./data/data";
 import { useState, useEffect } from "react";
 import { getCurrentMonth, FilterListByMonth } from "./helpers/dateFilter";
-import { ThemeSwitcher } from "./components/themeSwitcher";
 import { useAppSelector } from "./redux/hooks/useAppSelector";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../../../Components/Navbar/Navbar";
@@ -24,6 +23,10 @@ const Transacoes = () => {
   });
 
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(transacoesFetch(auth.id));
+  }, [dispatch, auth.id]);
 
   const [list, setList] = useState(transacoes.transacoes);
   const [filteredList, setFilteredList] = useState([]);
