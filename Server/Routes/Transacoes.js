@@ -31,13 +31,6 @@ router.post("/", async (req, res) => {
   const idUser = req.body.idUser;
   const cartao = req.body.cartao;
 
- /*  let data = req.body.date.split("T")[0];
-  function converterData(data) {
-    var partes = data.split("-"); // Divide a string nos separadores "-"
-    var novaData = partes[2] + "-" + partes[1] + "-" + partes[0]; // Rearranja as partes da data
-    return novaData;
-  } */
-
   const data = req.body.date;
   const titulo = req.body.title;
   const valor = req.body.value;
@@ -90,6 +83,42 @@ router.post("/", async (req, res) => {
     }
   );
 });
+
+//fazer um update que muda somente o cardValoratual do cartao, que vai ser usado quando eu adicionar uma nova despesa com aquele cartao;
+
+router.put("/", async (req, res) => {
+  const id = (req.body.cartao).split(",")[0];
+  const valor2 = req.body.value;
+
+  db.query("SELECT * FROM cartoes WHERE id = ?", [id], (err, result) => {
+    if (err) {
+      res.send(err);
+    }
+
+    let valor = result[0].cartoesValoratual + valor2;
+
+    if(valor > result[0].cartoesLimite){
+      res.send({
+        msg: "Limite do cartão excedido!",
+      });
+    }else{
+      db.query(
+        "UPDATE cartoes SET cartoesValoratual = ? WHERE id = ?",
+        [valor, id],
+        (error, result) => {
+          if (error) {
+            res.send(error);
+          }
+
+          res.send({
+            msg: "Valor atualizado com sucesso!",
+          });
+        }
+      );
+    }
+  });
+});
+
 
 /* router.post("/:id", async (req, res) => {
   const id = req.body.id;
@@ -147,20 +176,20 @@ router.post("/", async (req, res) => {
   });
 }); */
 
-/* delete cartao */
-/* router.delete("/:id", async (req, res) => {
+/* delete transacao */
+router.delete("/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    db.query("SELECT * FROM cartoes WHERE id = ?", [id], (err, result) => {
+    db.query("SELECT * FROM transacoes WHERE id = ?", [id], (err, result) => {
       if (err) {
         res.send(err);
       }
       if (result.length > 0) {
-        db.query("DELETE FROM cartoes WHERE id = ?", [id], (err, result) => {
+        db.query("DELETE FROM transacoes WHERE id = ?", [id], (err, result) => {
           if (err) {
             res.send(err);
           } else {
-            res.send({ msg: "Cartão deletado com Sucesso" });
+            res.send({ msg: "Transação deletada com Sucesso" });
           }
         });
       }
@@ -169,6 +198,6 @@ router.post("/", async (req, res) => {
     console.log(error);
     res.status(500).send(error);
   }
-}); */
+});
 
 module.exports = router;
