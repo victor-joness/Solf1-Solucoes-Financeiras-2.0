@@ -11,7 +11,13 @@ import Navbar from "../../../Components/Navbar/Navbar";
 import Header from "../../../Components/Header/Header";
 import NotFound from "../../NotFound/NotFound";
 import "./Transacoes.css";
-import { transacaoCreate, transacoesFetch } from "../../../Features/transacoes";
+import {
+  transacaoCreate,
+  transacoesFetch,
+  transacoesCartoesUpdate,
+  transacoesDelete,
+} from "../../../Features/transacoes";
+import { toast } from "react-toastify";
 
 const Transacoes = () => {
   const auth = useSelector((state) => {
@@ -42,7 +48,6 @@ const Transacoes = () => {
   }, [list, currentMonth]);
 
   console.log(filteredList);
-  console.log(searchItem);
 
   useEffect(() => {
     setList(transacoes.transacoes);
@@ -82,7 +87,6 @@ const Transacoes = () => {
 
     SetIncome(incomeCount);
     SetExpense(expenseCount);
-    console.log(incomeCount);
   }, [filteredList, searchItem.titulo, searchItem.categoria]);
 
   console.log(list);
@@ -92,18 +96,38 @@ const Transacoes = () => {
   };
 
   const handleAddItem = (item) => {
-    dispatch(transacaoCreate({ idUser: auth.id, ...item }));
-    let newList = [...list];
-    newList.push(item);
-    setList(newList);
+    if (item.category == "profit" || item.category == "salary") {
+      dispatch(transacaoCreate({ idUser: auth.id, ...item }));
+      let newList = [...list];
+      newList.push(item);
+      setList(newList);
+    } else if (item.cartao != "") {
+      dispatch(transacoesCartoesUpdate(item)).then((e) => {
+        if (e.payload.msg == "Limite do cartão excedido!") {
+          toast.error(e.payload.msg);
+        } else {
+          dispatch(transacaoCreate({ idUser: auth.id, ...item }));
+          let newList = [...list];
+          newList.push(item);
+          setList(newList);
+        }
+      });
+    } else {
+      dispatch(transacaoCreate({ idUser: auth.id, ...item }));
+      let newList = [...list];
+      newList.push(item);
+      setList(newList);
+    }
   };
 
-  const handleDeleteItem = (titulo) => {
-    let newlist = list.filter((item) => {
-      if (item.titulo !== titulo) return item;
-    });
+  const handleDeleteItem = (id) => {
+    dispatch(transacoesDelete(id)).then((e) => {
+      let newlist = list.filter((item) => {
+        if (item.id !== id) return item;
+      });
 
-    setList(newlist);
+      setList(newlist);
+    });
   };
 
   if (auth.token) {
