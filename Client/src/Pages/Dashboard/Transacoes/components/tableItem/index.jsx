@@ -16,8 +16,8 @@ export const TableItem = ({ item, handleDeleteItem }) => {
         return formatValue.toLocaleString('pt-br', { style: 'currency', currency: 'BRL' });
     }
 
-    const deleteItem = ({ titulo }) => {
-        handleDeleteItem(titulo);
+    const deleteItem = ({ id }) => {
+        handleDeleteItem(id);
     };
 
     function converterData(data) {
