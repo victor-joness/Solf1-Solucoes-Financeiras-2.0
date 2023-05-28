@@ -73,8 +73,8 @@ const OptionsContainer = () => {
           className="OptionsContainer--infos__conta__pessoais"
           onClick={Dashboard_card}
         >
-          <p>Talvez fazer uma aba de faturas</p>
-          <p>Cadastre seus Cartões</p>
+          <p>Fazer Crud de Categoria</p>
+          <p>Alguma coisa aqui</p>
         </div>
       </div>
 
