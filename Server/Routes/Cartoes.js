@@ -95,13 +95,6 @@ router.post("/", async (req, res) => {
   );
 });
 
-
-//fazer um update que muda somente o cardValoratual do cartao, que vai ser usado quando eu adicionar uma nova despesa com aquele cartao;
-
-
-
-
-
 router.post("/:id", async (req, res) => {
   const id = req.body.id;
   const idCartao = req.body.cartoesUser;
