@@ -23,6 +23,20 @@ export const transacoesFetch = createAsyncThunk(
   }
 );
 
+export const transacoesCartoesUpdate = createAsyncThunk(
+  "transacoes/transacoesCartoesUpdate",
+  async (dados) => {
+    const response = await axios.put(
+      `${url}/transacoes`,dados,
+      setHeaders()
+    );
+
+    console.log(response.data);
+
+    return response.data;
+  }
+);
+
 //axios fazendo a resuisinção da api, ele vai enviar os valores que eu recebo dos input pra api, na api ele vai salvar no banco de dados.
 export const transacaoCreate = createAsyncThunk(
   "transacao/transacaoCreate",
@@ -52,18 +66,18 @@ export const updateCartoes = createAsyncThunk(
   }
 ); */
 
-/* export const cartoesDelete = createAsyncThunk(
-  "cartoes/cartoesDelete",
+export const transacoesDelete = createAsyncThunk(
+  "transacoes/transacoesDelete",
   async (id) => {
     try {
-      const response = await axios.delete(`${url}/cartoes/${id}`, setHeaders());
+      const response = await axios.delete(`${url}/transacoes/${id}`, setHeaders());
       return response?.data;
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data);
     }
   }
-); */
+);
 
 const cartoesSlice = createSlice({
   name: "cartoes",
@@ -103,30 +117,29 @@ const cartoesSlice = createSlice({
       state.status = "rejected";
     },
 
-    /* [cartoesFetch.pending]: (state, action) => {
+    [transacoesCartoesUpdate.pending]: (state, action) => {
       state.status = "pending";
     },
-    [cartoesFetch.fulfilled]: (state, action) => {
-      state.cartoes = action.payload;
+    [transacoesCartoesUpdate.fulfilled]: (state, action) => {
       state.status = "success";
     },
-    [cartoesFetch.rejected]: (state, action) => {
+    [transacoesCartoesUpdate.rejected]: (state, action) => {
       state.status = "rejected";
     },
-    [cartoesDelete.pending]: (state, action) => {
+    [transacoesDelete.pending]: (state, action) => {
       state.deleteStatus = "pending";
     },
-    [cartoesDelete.fulfilled]: (state, action) => {
-      const newList = state.cartoes.filter(
-        (doutor) => doutor.id !== action.meta.arg
+    [transacoesDelete.fulfilled]: (state, action) => {
+      const newList = state.transacoes.filter(
+        (transacao) => transacao.id !== action.meta.arg
       );
-      state.cartoes = newList;
+      state.transacoes = newList;
       state.deleteStatus = "success";
-      toast.error("Cartão Deletado com Sucesso");
+      toast.error("Transação Deletada com Sucesso");
     },
-    [cartoesDelete.rejected]: (state, action) => {
+    [transacoesDelete.rejected]: (state, action) => {
       state.deleteStatus = "rejected";
-    }, */
+    }
   },
 });
 
