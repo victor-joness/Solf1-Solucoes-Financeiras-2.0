@@ -28,8 +28,6 @@ router.get("/getEndereco/:id", async (req, res) => {
 });
 
 router.put("/", async (req, res) => {
-
-
   const id = req.body.id;
   const cidade = req.body.cidade;
   const estado = req.body.estado;
