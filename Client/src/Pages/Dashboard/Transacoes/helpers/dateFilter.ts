@@ -6,8 +6,6 @@ export const getCurrentMonth = () => {
 };
 
 export const FilterListByMonth = (list: Item[], date: string) => {
-    console.log(list);
-    console.log(date);
     let newList: Item[] = [];
     let [year, month] = date.split('-')
     for (let i in list) {
