@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Container = styled.div<{theme: string}>`
     padding: 20px;
     box-shadow: 0px 0px 5px #ccc;
-    background-color: ${props => props.theme.status === 'light' ? '#fff' : '#000'};
+    background-color: ${props => props.theme.status === 'light' ? '#fff' : '#fff'};
     border-radius: 15px;
     padding: 20px;
     margin-top: 20px;
@@ -18,10 +18,10 @@ export const Container = styled.div<{theme: string}>`
         border-left: 0;
         outline: 0;
         background-color: transparent;
-        color: ${props => props.theme.status === 'light' ? '#000' : '#fff'};
+        color: ${props => props.theme.status === 'light' ? '#000' : '#000'};
 
         ::placeholder {
-            color: ${props => props.theme.status === 'light' ? '#000' : '#fff'};
+            color: ${props => props.theme.status === 'light' ? '#000' : '#000'};
         }
     };
 
@@ -50,13 +50,13 @@ export const Container = styled.div<{theme: string}>`
         padding: 10px
         outline: 0;
         border-right: 0;
-        color: ${props => props.theme.status === 'light' ? '#000' : '#fff'};
-        background-color: ${props => props.theme.status === 'light' ? '#fff' : '#000'};
+        color: ${props => props.theme.status === 'light' ? '#000' : '#000'};
+        background-color: ${props => props.theme.status === 'light' ? '#fff' : '#fff'};
     };
 
     .option {
-        background-color: ${props => props.theme.status === 'light' ? '#fff' : '#000'};
-        color: ${props => props.theme.status === 'light' ? '#000' : '#fff'};
+        background-color: ${props => props.theme.status === 'light' ? '#fff' : '#fff'};
+        color: ${props => props.theme.status === 'light' ? '#000' : '#000'};
     }
 
     button {

@@ -14,13 +14,13 @@ export const items: Item[] = [
 ];
 
 export const categories: Category = {
-    food: { titulo: 'Alimentação', color: '#0000ff', expense: true },
-    rent: { titulo: 'Aluguel', color: '#ff0000', expense: true },
-    cloats: { titulo: 'Roupas', color: '#06d5f9', expense: true },
-    salary: { titulo: 'Salário', color: '#008000', expense: false },
-    tax: {titulo: 'Impostos', color: '#ff0000', expense: true },
-    profit: {titulo: 'Lucros', color: '#008000', expense: false },
-    velhice: {titulo: 'veiculos', color: '#ffff00', expense: true },
-    investments: {titulo: 'Investimentos', color: '#000080', expense: true },
-    services: {titulo: 'Serviços', color: '#ff6913', expense: true }
+    food: { id: 1,titulo: 'Alimentação', color: '#0000ff', expense: true },
+    rent: { id: 2,titulo: 'Aluguel', color: '#ff0000', expense: true },
+    cloats: { id: 3,titulo: 'Roupas', color: '#06d5f9', expense: true },
+    salary: { id: 4,titulo: 'Salário', color: '#008000', expense: false },
+    tax: {id: 5,titulo: 'Impostos', color: '#ff0000', expense: true },
+    profit: {id: 6,titulo: 'Lucros', color: '#008000', expense: false },
+    velhice: {id: 7,titulo: 'veiculos', color: '#ffff00', expense: true },
+    investments: {id: 8,titulo: 'Investimentos', color: '#000080', expense: true },
+    services: {id: 9,titulo: 'Serviços', color: '#ff6913', expense: true }
 };

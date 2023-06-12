@@ -18,6 +18,7 @@ import Perfil from './Pages/Dashboard/Perfil/Perfil';
 import Endereco from "./Pages/Dashboard/Endereco/Endereco";
 import Transacoes from "./Pages/Dashboard/Transacoes/Transacoes";
 import Cartoes from './Pages/Dashboard/Cartoes/Cartoes';
+import Categoria from './Pages/Dashboard/Categoria/Categoria'
 
 function App() {
   return(
@@ -35,6 +36,7 @@ function App() {
             <Route path='/home-login' element={<HomeLogin/>}/>
             <Route path='/perfil' element={<Perfil/>}/>
             <Route path='/endereco' element={<Endereco/>}/>
+            <Route path='/categoria' element={<Categoria/>}/>
             <Route path='/transacoes' element={<Transacoes/>}/>
             <Route path='/cartoes' element={<Cartoes/>}/>
         </Routes>

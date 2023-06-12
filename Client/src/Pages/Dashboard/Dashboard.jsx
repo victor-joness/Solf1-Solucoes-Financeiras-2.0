@@ -12,6 +12,7 @@ import OptionsContainer from "../../Components/OptionsContainer/OptionsContainer
 
 import { enderecoFetch } from "../../Features/enderecoSlice";
 import { transacoesFetch } from "../../Features/transacoes";
+import { categoriasFetch } from "../../Features/categoriasSlice";
 
 const Dashboard = () => {
   const auth = useSelector((state) => {
@@ -29,6 +30,7 @@ const Dashboard = () => {
 
   dispatch(transacoesFetch(auth.id));
   dispatch(enderecoFetch(auth.id));
+  dispatch(categoriasFetch(auth.id));
 
   if (auth.token) {
     return (

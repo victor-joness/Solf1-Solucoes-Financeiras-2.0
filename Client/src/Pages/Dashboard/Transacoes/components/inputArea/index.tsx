@@ -1,7 +1,6 @@
 import { Item } from "../../types/types";
 import { useState } from "react";
 import * as c from "./styles";
-import { useAppSelector } from "../../redux/hooks/useAppSelector";
 import React from "react";
 import { useSelector } from "react-redux";
 
@@ -20,16 +19,15 @@ export const InputArea = ({ onAdd }: Props) => {
     return state.cartoes;
   });
 
-  const theme = useAppSelector((state) => state.theme);
-
   const handleAddEvent = () => {
     let newItem = {
-      date: new Date(date),
+      date: date,
       category: category,
       title: title,
       value: parseInt(value),
       cartao: cartao,
     };
+    console.log(newItem);
     setCartao("");
     setCategory("");
     setTitle("");
@@ -38,8 +36,12 @@ export const InputArea = ({ onAdd }: Props) => {
     onAdd(newItem);
   };
 
+  const categorias = useSelector((state : any) => {
+    return state.categorias;
+  });
+
   return (
-    <c.Container theme={theme}>
+    <c.Container>
       <input
         type="search"
         value={title}
@@ -95,6 +97,17 @@ export const InputArea = ({ onAdd }: Props) => {
         <option className="option" value={"services"}>
           Serviços
         </option>
+        {categorias.categorias.map((categoria: any) => {
+          return (
+            <option key={categoria.id} value={categoria.nome}>
+              {
+                <p>
+                  {categoria.titulo}
+                </p>
+              }
+            </option>
+          );
+        })}
       </select>
       <select
         value={cartao}

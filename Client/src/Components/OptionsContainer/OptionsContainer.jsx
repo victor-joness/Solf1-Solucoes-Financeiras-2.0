@@ -23,7 +23,9 @@ const OptionsContainer = () => {
     navigate("/transacoes");
   };
 
-  const Dashboard_card = () => {};
+  const Dashboard_categoria = () => {
+    navigate("/categoria");
+  };
 
   return (
     <div className="OptionsContainer--infos">
@@ -64,17 +66,17 @@ const OptionsContainer = () => {
       <div className="OptionsContainer--infos__conta">
         <div
           className="OptionsContainer--infos__conta__icon"
-          onClick={Dashboard_card}
+          onClick={Dashboard_categoria}
         >
           <img src={iconCredit} alt="icon de user" />
         </div>
 
         <div
           className="OptionsContainer--infos__conta__pessoais"
-          onClick={Dashboard_card}
+          onClick={Dashboard_categoria}
         >
-          <p>Fazer Crud de Categoria</p>
-          <p>Alguma coisa aqui</p>
+          <p>Adicionar Categoria</p>
+          <p>Adicione sua categoria</p>
         </div>
       </div>
 

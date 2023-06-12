@@ -71,6 +71,7 @@ router.post("/", async (req, res) => {
       res.send({
         msg: "Transação cadastrada com sucesso!",
         transacao: {
+          id: result.insertId,
           idUser: idUser,
           cartao: cartao,
           data: data,

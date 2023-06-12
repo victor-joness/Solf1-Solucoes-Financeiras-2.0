@@ -13,6 +13,7 @@ import authReducer, { loadUser } from "./Features/authSlice";
 import enderecoReducer from "./Features/enderecoSlice";
 import cartoesReducer from "./Features/cartoesSlice";
 import transacoesReducer from "./Features/transacoes";
+import categoriasReducer from "./Features/categoriasSlice";
 
 const store = configureStore({
   reducer: {
@@ -20,6 +21,7 @@ const store = configureStore({
     endereco: enderecoReducer,
     cartoes: cartoesReducer,
     transacoes: transacoesReducer,
+    categorias: categoriasReducer,
     theme: themeReducer,
     searchItem: searchReducer
   },

@@ -8,6 +8,7 @@ export type Item = {
 
 export type Category = {
     [tag: string]: {
+        id: number;
         titulo: string;
         color: string;
         expense: boolean;

@@ -10,6 +10,7 @@ const db = mysql.createConnection({
   database: "solf1",
 });
 
+/* get todos os cartoes de um user em especifico */
 router.get("/getCartoes/:id", async (req, res) => {
   const id = req.params.id;
 
@@ -27,6 +28,7 @@ router.get("/getCartoes/:id", async (req, res) => {
   );
 });
 
+/* criacao de um cartao novo */
 router.post("/", async (req, res) => {
   const id = req.body.cartoesUser;
   const cardNumber = req.body.cardNumber;
@@ -95,6 +97,7 @@ router.post("/", async (req, res) => {
   );
 });
 
+/* update de um cartao ja existe */
 router.post("/:id", async (req, res) => {
   const id = req.body.id;
   const idCartao = req.body.cartoesUser;

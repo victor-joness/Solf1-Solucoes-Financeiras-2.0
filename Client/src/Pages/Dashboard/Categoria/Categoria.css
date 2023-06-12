@@ -1,0 +1,65 @@
+.OptionsConta-form-categoria {
+  display: flex;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--categoria {
+  height: auto;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--categoria
+  form
+  .file {
+  border: 0.1rem solid var(--verde);
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--categoria
+  form
+  .OptionsConta-form-input {
+  width: 40rem;
+  height: 4rem;
+  border: 0.1rem solid var(--verde);
+  border-radius: 0.5rem;
+  margin: 0 auto 2rem auto;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--categoria
+  form
+  .form-error-edit {
+  text-align: center;
+  color: red;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--categoria
+  .form-OptionsConta-categoria {
+  height: 100%;
+  width: 100%;
+  color: #000;
+  font-size: 2rem;
+  background: white;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+}
+
+.OptionsConta--container--direita--mid--direita--infos--mid__inputs--categoria
+  .form-OptionsConta-categoria::placeholder {
+  color: #000;
+}
+
+.input-name-form-categoria {
+  display: flex;
+  justify-content: left;
+  font-size: 2rem;
+  color: white;
+  margin-top: 0.5rem;
+}
+
+.categoria-box {
+  display: flex;
+  gap: 2rem;
+}
+
+.categoria-box button{
+  margin-top: 2.3rem;
+}
