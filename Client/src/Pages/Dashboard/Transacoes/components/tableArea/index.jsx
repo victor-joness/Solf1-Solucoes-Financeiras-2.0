@@ -9,7 +9,7 @@ import {
   setCartao,
 } from "../../redux/reducers/searchReducer";
 
-export const TableArea = ({ list, deleteItem }) => {
+export const TableArea = ({ list, deleteItem, editItem}) => {
   const auth = useSelector((state) => {
     return state.auth;
   });
@@ -89,6 +89,7 @@ export const TableArea = ({ list, deleteItem }) => {
             list.map((item, index) => (
               <TableItem
                 handleDeleteItem={deleteItem}
+                handleEditItem={editItem}
                 key={index}
                 item={item}
               />
