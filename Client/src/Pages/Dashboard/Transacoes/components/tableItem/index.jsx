@@ -8,6 +8,8 @@ import React from "react";
 import { TodasCategorias } from "../../../Categoria/Categoria";
 
 import "./tableItem.css";
+import EditTransacoes from "../../../../../Components/Edit/EditTransacoes";
+import { useSelector } from "react-redux";
 
 function transformarDados() {
   const dados = TodasCategorias();
@@ -100,7 +102,7 @@ function transformarDados() {
   return resultado;
 }
 
-export const TableItem = ({ item, handleDeleteItem }) => {
+export const TableItem = ({ item, handleDeleteItem, handleEditItem }) => {
   const searchItem = useAppSelector((state) => state.searchItem);
 
   const formatedValue = (value) => {
@@ -116,6 +118,10 @@ export const TableItem = ({ item, handleDeleteItem }) => {
     handleDeleteItem(id);
   };
 
+  const editItem = ({ id }) => {
+    handleEditItem(id);
+  };
+
   function converterData(data) {
     var partes = data.split("-"); // Divide a string nos separadores "-"
     var novaData = partes[2] + "-" + partes[1] + "-" + partes[0]; // Rearranja as partes da data
@@ -123,6 +129,8 @@ export const TableItem = ({ item, handleDeleteItem }) => {
   }
 
   const categories = transformarDados();
+
+  console.log(categories);
 
   return (
     <>
@@ -147,7 +155,7 @@ export const TableItem = ({ item, handleDeleteItem }) => {
           </c.TableColumn>
           <c.TableColumn>
             <div className="icon">
-              <BiPencil size={25} weight="regular" />
+              <EditTransacoes transacoesId={item}></EditTransacoes>
             </div>
           </c.TableColumn>
           <c.TableColumn>
@@ -180,9 +188,9 @@ export const TableItem = ({ item, handleDeleteItem }) => {
               </c.Value>
             </c.TableColumn>
             <c.TableColumn>
-              <div className="icon">
-                <BiPencil size={25} weight="regular" />
-              </div>
+            <div className="icon">
+              <EditTransacoes transacoesId={item}></EditTransacoes>
+            </div>
             </c.TableColumn>
             <c.TableColumn>
               <div onClick={() => deleteItem(item)} className="icon">
@@ -214,9 +222,9 @@ export const TableItem = ({ item, handleDeleteItem }) => {
               </c.Value>
             </c.TableColumn>
             <c.TableColumn>
-              <div className="icon">
-                <BiPencil size={25} weight="regular" />
-              </div>
+            <div className="icon">
+              <EditTransacoes transacoesId={item}></EditTransacoes>
+            </div>
             </c.TableColumn>
             <c.TableColumn>
               <div onClick={() => deleteItem(item)} className="icon">
@@ -248,9 +256,9 @@ export const TableItem = ({ item, handleDeleteItem }) => {
               </c.Value>
             </c.TableColumn>
             <c.TableColumn>
-              <div className="icon">
-                <BiPencil size={25} weight="regular" />
-              </div>
+            <div className="icon">
+              <EditTransacoes transacoesId={item}></EditTransacoes>
+            </div>
             </c.TableColumn>
             <c.TableColumn>
               <div onClick={() => deleteItem(item)} className="icon">
@@ -282,9 +290,9 @@ export const TableItem = ({ item, handleDeleteItem }) => {
               </c.Value>
             </c.TableColumn>
             <c.TableColumn>
-              <div className="icon">
-                <BiPencil size={25} weight="regular" />
-              </div>
+            <div className="icon">
+              <EditTransacoes transacoesId={item}></EditTransacoes>
+            </div>
             </c.TableColumn>
             <c.TableColumn>
               <div onClick={() => deleteItem(item)} className="icon">
