@@ -13,18 +13,14 @@ const db = mysql.createConnection({
 router.get("/getTransacoes/:id", async (req, res) => {
   const id = req.params.id;
 
-  db.query(
-    "SELECT * FROM transacoes WHERE idUser = ?",
-    [id],
-    (err, result) => {
-      if (err) {
-        console.log(err);
-      }
-
-      const transacoes = result;
-      res.status(200).send(transacoes);
+  db.query("SELECT * FROM transacoes WHERE idUser = ?", [id], (err, result) => {
+    if (err) {
+      console.log(err);
     }
-  );
+
+    const transacoes = result;
+    res.status(200).send(transacoes);
+  });
 });
 
 router.post("/", async (req, res) => {
@@ -86,9 +82,8 @@ router.post("/", async (req, res) => {
 });
 
 //fazer um update que muda somente o cardValoratual do cartao, que vai ser usado quando eu adicionar uma nova despesa com aquele cartao;
-
 router.put("/", async (req, res) => {
-  const id = (req.body.cartao).split(",")[0];
+  const id = req.body.cartao.split(",")[0];
   const valor2 = req.body.value;
 
   db.query("SELECT * FROM cartoes WHERE id = ?", [id], (err, result) => {
@@ -98,11 +93,11 @@ router.put("/", async (req, res) => {
 
     let valor = result[0].cartoesValoratual + valor2;
 
-    if(valor > result[0].cartoesLimite){
+    if (valor > result[0].cartoesLimite) {
       res.send({
         msg: "Limite do cartão excedido!",
       });
-    }else{
+    } else {
       db.query(
         "UPDATE cartoes SET cartoesValoratual = ? WHERE id = ?",
         [valor, id],
@@ -120,62 +115,81 @@ router.put("/", async (req, res) => {
   });
 });
 
-
-/* router.post("/:id", async (req, res) => {
+router.post("/:id", async (req, res) => {
   const id = req.body.id;
-  const idCartao = req.body.cartoesUser;
-  const cardNumber = req.body.cartoesNumero;
-  const cardName = req.body.cartoesNome;
-  const cardTipo = req.body.cartoesTipo;
-  const cardExpMM = req.body.cardExpMM;
-  const cardExpYY = req.body.cardExpYY;
+  const idUser = req.body.idUser;
+  const valor = req.body.valor;
+  const titulo = req.body.titulo;
+  const data = req.body.data;
+  const expense = req.body.expense;
+  const categoria = req.body.categoria;
+  const cartao = req.body.cartao;
 
-  const validade = cardExpMM + "/" + cardExpYY;
+  const idCartao = cartao[0] + cartao[1];
 
-  const cardLimite = req.body.cartoesLimite;
-  const cvc = req.body.cartoesCodigo;
+  db.query(
+    "UPDATE transacoes SET `titulo` = ?, `categoria` = ?, `valor` = ?, `expense` = ?, `data` = ?, `cartao` = ? WHERE `id` = ?",
+    [titulo, categoria, valor, expense, data, cartao, id],
 
-  db.query("SELECT * FROM cartoes WHERE id = ?", [id], (err, result) => {
-    if (err) {
-      res.send(err);
+    (err, result) => {
+      if (err) {
+        res.send(err);
+      }
+      res.send({
+        msg: "Transação atualizada com Sucesso",
+        transacao: {
+          id: id,
+          idUser: idUser,
+          valor: valor,
+          titulo: titulo,
+          data: data,
+          expense: expense,
+          categoria: categoria,
+          cartao: cartao,
+        },
+      });
     }
+  );
 
-    if (result.length > 0) {
+  db.query(
+    "SELECT * FROM transacoes WHERE idUser = ?",
+    [idUser],
+    (err, result) => {
+      if (err) {
+        res.send(err);
+      }
+
+      let valor = 0;
+
+      arr = result.filter((transacao) => {
+        if (
+          (transacao.cartao[0] == idCartao[0] &&
+            transacao.cartao[1] == idCartao[1]) == true
+        ) {
+          return transacao;
+        }
+      });
+
+      arr.map((transacao) => {
+        if (transacao.expense == 1) {
+          valor += transacao.valor;
+        } else {
+          valor -= transacao.valor;
+        }
+      });
+
       db.query(
-        "UPDATE cartoes SET `cartoesUser` = ?, `cartoesNome` = ?, `cartoesNumero` = ?, `cartoesTipo` = ?, `cartoesValidade` = ?, `cartoesLimite` = ?, `cartoesCodigo` = ? WHERE `id` = ?",
-        [
-          idCartao,
-          cardName,
-          cardNumber,
-          cardTipo,
-          validade,
-          cardLimite,
-          cvc,
-          id,
-        ],
-
+        "UPDATE cartoes SET cartoesValoratual = ? WHERE id = ?",
+        [valor, idCartao],
         (err, result) => {
           if (err) {
             res.send(err);
           }
-          res.send({
-            msg: "Cartão atualizado com Sucesso",
-            cartoes: {
-              id: id,
-              cartoesUser: idCartao,
-              cartoesNumero: cardNumber,
-              cartoesNome: cardName,
-              cartoesTipo: cardTipo,
-              cartoesValidade: validade,
-              cartoesLimite: cardLimite,
-              cvc: cvc,
-            },
-          });
         }
       );
     }
-  });
-}); */
+  );
+});
 
 /* delete transacao */
 router.delete("/:id", async (req, res) => {
