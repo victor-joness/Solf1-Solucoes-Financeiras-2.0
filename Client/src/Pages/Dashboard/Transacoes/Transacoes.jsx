@@ -2,7 +2,6 @@ import * as c from "./app.styles";
 import { TableArea } from "./components/tableArea";
 import { InfoArea } from "./components/infoArea";
 import { InputArea } from "./components/inputArea";
-import { items } from "./data/data";
 import { useState, useEffect } from "react";
 import { getCurrentMonth, FilterListByMonth } from "./helpers/dateFilter";
 import { useAppSelector } from "./redux/hooks/useAppSelector";
@@ -123,7 +122,9 @@ const Transacoes = () => {
     return state.transacoes;
   });
 
-  console.log(transacoes.transacoes);
+  const categorias = useSelector((state) => {
+    return state.categorias;
+  });
 
   const dispatch = useDispatch();
 
@@ -227,6 +228,10 @@ const Transacoes = () => {
       setList(newlist);
     });
   };
+  
+  const handleEditItem = (id) => {
+    console.log(id);
+  }
 
   if (auth.token) {
     return (
@@ -234,7 +239,7 @@ const Transacoes = () => {
         <Navbar></Navbar>
         <div className="container-direita-dashboard">
           <Header></Header>
-
+          
           <div className="container-direita-center">
             <c.Container theme={theme}>
               <c.Header theme={theme}>
@@ -251,7 +256,7 @@ const Transacoes = () => {
                   currentMonth={currentMonth}
                 />
                 <InputArea onAdd={handleAddItem} />
-                <TableArea deleteItem={handleDeleteItem} list={filteredList} />
+                <TableArea deleteItem={handleDeleteItem} editItem={handleEditItem} list={filteredList} />
               </c.Body>
             </c.Container>
           </div>
