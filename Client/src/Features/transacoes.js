@@ -50,21 +50,21 @@ export const transacaoCreate = createAsyncThunk(
     }
   }
 );
-/* 
-export const updateCartoes = createAsyncThunk(
-  "cartoes/updateCartoes",
-  async (cartao, { rejectWithValue }) => {
-    console.log(cartao);
+
+export const updateTransacao = createAsyncThunk(
+  "transacao/updateTransacao",
+  async (transacao, { rejectWithValue }) => {
+    console.log(transacao);
 
     try {
-      const data = await axios.post(`${url}/cartoes/${cartao.id}`,cartao, setHeaders());
+      const data = await axios.post(`${url}/transacoes/${transacao.id}`,transacao, setHeaders());
       return data.data;
     } catch (error) {
       console.log(error);
       return rejectWithValue(error.response.data);
     }
   }
-); */
+);
 
 export const transacoesDelete = createAsyncThunk(
   "transacoes/transacoesDelete",
@@ -84,16 +84,17 @@ const cartoesSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    /* [updateCartoes.pending]: (state, action) => {
+    [updateTransacao.pending]: (state, action) => {
       state.updateStatus = "pending";
     },
-    [updateCartoes.fulfilled]: (state, action) => {
+    [updateTransacao.fulfilled]: (state, action) => {
       state.updateStatus = "success";
       toast.success(action.payload.msg);
     },
-    [updateCartoes.rejected]: (state, action) => {
+    [updateTransacao.rejected]: (state, action) => {
       state.updateStatus = "rejected";
-    }, */
+    },
+
     [transacaoCreate.pending]: (state, action) => {
       state.createStatus = "pending";
     },
@@ -126,6 +127,7 @@ const cartoesSlice = createSlice({
     [transacoesCartoesUpdate.rejected]: (state, action) => {
       state.status = "rejected";
     },
+
     [transacoesDelete.pending]: (state, action) => {
       state.deleteStatus = "pending";
     },
