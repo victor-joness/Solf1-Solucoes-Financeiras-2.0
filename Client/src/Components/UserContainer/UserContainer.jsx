@@ -40,10 +40,6 @@ const UserContainer = () => {
         <p className="user-infos-container__pessoais__Endereço">
           {`Endereço : ${endereco.cidade}, ${endereco.bairro}, ${endereco.numero}`}
         </p>
-
-        <p className="user-infos-container__pessoais__Saldo">
-          {`Saldo : {total}`}
-        </p>
       </div>
     </div>
   );
