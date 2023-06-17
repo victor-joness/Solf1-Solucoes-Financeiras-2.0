@@ -19,6 +19,8 @@ import Endereco from "./Pages/Dashboard/Endereco/Endereco";
 import Transacoes from "./Pages/Dashboard/Transacoes/Transacoes";
 import Cartoes from './Pages/Dashboard/Cartoes/Cartoes';
 import Categoria from './Pages/Dashboard/Categoria/Categoria'
+import Graficos from './Pages/Dashboard/Graficos/Graficos';
+
 
 function App() {
   return(
@@ -39,6 +41,7 @@ function App() {
             <Route path='/categoria' element={<Categoria/>}/>
             <Route path='/transacoes' element={<Transacoes/>}/>
             <Route path='/cartoes' element={<Cartoes/>}/>
+            <Route path='/graficos' element={<Graficos/>}/>
         </Routes>
       </BrowserRouter>
     </div>

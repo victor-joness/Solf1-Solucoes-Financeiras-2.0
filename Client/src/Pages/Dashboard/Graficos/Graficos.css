@@ -1,0 +1,10 @@
+.container-graficos {
+  display: flex;
+}
+
+.container-direita-graficos {
+  display: flex;
+  flex-direction: column;
+  background-color: #080808ec;
+  width: 100vw;
+}

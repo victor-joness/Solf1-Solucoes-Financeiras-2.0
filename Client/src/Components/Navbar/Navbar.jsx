@@ -36,7 +36,7 @@ const Navbar = () => {
     navigate("/dashboard");
   };
 
-  const cartões = () => {
+  const cartoes = () => {
     navigate("/cartoes");
   };
 
@@ -45,7 +45,7 @@ const Navbar = () => {
   }
 
   const admin = () => {
-    
+    navigate("/graficos");
   }
 
   const handleLogout = () => {
@@ -77,7 +77,7 @@ const Navbar = () => {
             <img src={galeria} alt="icon galeria navbar" />
           </div>
 
-          <div className="container-icons__quarto" onClick={cartões}>
+          <div className="container-icons__quarto" onClick={cartoes}>
             <img src={cartao} alt="icon cartao navbar" />
           </div>
 
@@ -88,7 +88,7 @@ const Navbar = () => {
 
         <div className="container-user">
           <div className="container-avatar">
-            <img src={avatar} alt="icon avatar navbar" />
+            <img src={`/upload/${auth.Img}`} alt="icon avatar navbar" />
           </div>
           <div className="container-exit" onClick={handleLogout}>
             <img src={exit} alt="icon exit navbar" />
@@ -116,7 +116,7 @@ const Navbar = () => {
             <img src={galeria} alt="icon galeria navbar" />
           </div>
 
-          <div className="container-icons__quarto" onClick={cartões}>
+          <div className="container-icons__quarto" onClick={cartoes}>
             <img src={cartao} alt="icon cartao navbar" />
           </div>
 
