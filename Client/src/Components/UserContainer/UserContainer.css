@@ -8,11 +8,11 @@
 }
 
 .user-infos-container .user-infos-container__pessoais {
-  height: 20rem;
+  height: 15rem;
   font-size: 2rem;
   display: flex;
   flex-direction: column;
-  margin: 2rem auto;
+  margin:auto;
   text-align: center;
 }
 
