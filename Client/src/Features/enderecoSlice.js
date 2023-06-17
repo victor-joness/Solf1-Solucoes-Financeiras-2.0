@@ -62,6 +62,7 @@ const enderecoSlice = createSlice({
     [updateEndereco.rejected]: (state, action) => {
       state.status = "rejected";
     },
+    
     [enderecoFetch.pending]: (state, action) => {
       state.status = "pending";
     },
