@@ -13,7 +13,6 @@ const db = mysql.createConnection({
 /* get todos os cartoes de um user em especifico */
 router.get("/getCartoes/:id", async (req, res) => {
   const id = req.params.id;
-
   db.query(
     "SELECT * FROM cartoes WHERE cartoesUser = ?",
     [id],
