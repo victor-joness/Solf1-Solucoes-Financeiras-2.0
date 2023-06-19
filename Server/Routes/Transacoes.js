@@ -199,6 +199,32 @@ router.delete("/:id", async (req, res) => {
       if (err) {
         res.send(err);
       }
+
+      console.log(result[0].cartao);
+
+      if (result[0].cartao != null) {
+        let idCartao = result[0].cartao[0] + result[0].cartao[1];
+
+        db.query(
+          "SELECT * FROM cartoes WHERE id = ?",
+          [idCartao],
+          (err, result2) => {
+            if (err) {
+              res.send(err);
+            } else {
+              let valor = result2[0].cartoesValoratual - result[0].valor;
+              db.query("UPDATE cartoes SET cartoesValoratual = ? WHERE id = ?", [valor, idCartao], (err, result3) => {
+                if (err) {
+                  res.send(err);
+                }else{
+                  console.log(result3);
+                }
+              });
+            } 
+          }
+        );
+      }
+
       if (result.length > 0) {
         db.query("DELETE FROM transacoes WHERE id = ?", [id], (err, result) => {
           if (err) {
