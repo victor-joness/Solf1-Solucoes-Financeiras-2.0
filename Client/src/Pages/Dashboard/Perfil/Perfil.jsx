@@ -205,6 +205,7 @@ const Perfil = () => {
                             ></ErrorMessage>
                           </div>
 
+                          <div className="buttons-perfil">
                           <button
                             className="button2--OptionsConta"
                             type="submit"
@@ -214,6 +215,7 @@ const Perfil = () => {
                           <button href="" type="button" className="button-deletar-conta" onClick={deletarConta}>
                             Deletar Conta
                           </button>
+                          </div>
                         </Form>
                       </Formik>
                     </div>
