@@ -123,7 +123,6 @@
     background: var(--cinza-navbar);
     padding: 2rem;
     border-radius: 2rem;
-    height: 64rem;
 }
 
 .OptionsConta--container--direita--mid--direita__infos{
@@ -133,10 +132,6 @@
     border-radius: 2rem;
     text-align: center;
     padding: 1rem;
-}
-
-.buttons-perfil{
-    gap: 2rem;
 }
 
 .OptionsConta--container--direita--mid--direita--infos--mid--inputs__buttons{

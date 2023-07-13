@@ -206,7 +206,7 @@ const Perfil = () => {
                           </div>
 
                           <div className="buttons-perfil">
-                          <button
+                            <button
                             className="button2--OptionsConta"
                             type="submit"
                           >
