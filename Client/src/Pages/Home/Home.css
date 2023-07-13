@@ -7,6 +7,7 @@
 .container--pagina--inicial{
     display: flex;
     background: var(--preto);
+    width: 100%;
     height: 100vh;
 }
 

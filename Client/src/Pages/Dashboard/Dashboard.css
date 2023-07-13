@@ -48,15 +48,16 @@
 
 .Dashboard--Container--direita__menu {
   display: flex;
-  width: 100rem;
-  height: 50rem;
+  width: 90rem;
+  height: 45rem;
   background: var(--cinza-navbar);
   border-radius: 2rem;
   margin: auto;
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  margin-top: 13rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .Dashboard--Container {

@@ -46,7 +46,18 @@ router.post("/", async (req, res) => {
           (error, response) => {
             if (err) {
               res.send(err);
+            }else{
+              db.query(
+                "INSERT INTO endereco (idUsuario, estado, cidade, cep, bairro, numero) VALUES (?,?,?,?,?,?)",
+                [response.insertId, '', '', '', '', ''],
+                (error, result) => {
+                  if (error) {
+                    res.send(error);
+                  }
+                }
+              );
             }
+
             res.send({
               msg: "Usuário cadastrado com sucesso",
               user: {

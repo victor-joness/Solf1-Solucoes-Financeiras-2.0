@@ -11,12 +11,12 @@
 .container-direita-homelogin {
   display: flex;
   flex-direction: column;
-  background-color: #080808ec;
   width: 100vw;
 }
 
 .container-direita-homelogin .container-direita-center {
   margin: auto;
+  width: 100%;
 }
 
 .container--pagina--inicial-homelogin {

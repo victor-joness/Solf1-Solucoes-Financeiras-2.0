@@ -452,7 +452,7 @@ const Cartoes = () => {
             <div className="table">
               <div
                 style={{
-                  height: "40vh",
+                  height: "59vh",
                   width: "auto",
                   fontSize: "1.5rem",
                 }}
