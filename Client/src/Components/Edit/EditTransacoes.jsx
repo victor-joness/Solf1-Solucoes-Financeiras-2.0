@@ -74,7 +74,7 @@ export default function EditTransacoes({ transacoesId }) {
         handleClose();
         setTimeout(() => {
           navigate("/dashboard");
-          setTimeout(() => {navigate("/transacoes")},"100")
+          setTimeout(() => {navigate("/transacoes")},"130")
         }, "500");
       }
     });
