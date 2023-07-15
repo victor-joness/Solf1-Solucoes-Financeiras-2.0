@@ -1,5 +1,6 @@
 .container-graficos {
   display: flex;
+  height: 110vh;
 }
 
 .container-direita-graficos {
@@ -7,4 +8,77 @@
   flex-direction: column;
   background-color: #080808ec;
   width: 100vw;
+}
+
+.content-area {
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+.container-grid-graficos {
+  padding: 0 20px;
+  display: grid;
+  grid-template-areas:
+    'row1 row1 row1'
+    'row2 row2 row2';
+}
+
+.container-grid-graficos .div{
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.row1-graficos {
+  grid-area: row1;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 40vh;
+}
+
+.basic-area {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: var(--preto);
+  width: 32%;
+  height: 100%;
+}
+
+.row2-graficos {
+  display: flex;
+  grid-area: row2;
+  width: 100%;
+  height: 55vh;
+}
+
+h4 {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  margin: 16px 0 25px 0;
+}
+
+.barras {
+  margin-left: 7px;
+  width: 33%;
+  background-color: var(--preto);
+  height: 100%;
+}
+
+
+.pizza {
+  background-color: var(--preto);
+  width: 32%;
+  margin: 0 20px;
+  height: 100%;
+}
+
+.barras2 {
+  background-color: var(--preto);
+  width: 35%;
+  height: 100%;
+}
+
+.container {
+  height: auto;
 }
