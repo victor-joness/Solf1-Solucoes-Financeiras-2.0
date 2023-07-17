@@ -37,11 +37,11 @@ não ultrapassou o dia de fechamento da fatura, para inclusão da despesa na fat
 mês atual ou do mês seguinte. Caso a despesa seja em cartão de débito, deve-se verificar
 se ainda existe saldo no cartão (receita do mês);                                                  
 • Nas despesas pagas em cartão de crédito, o valor da prestação será incluído automaticamente nas faturas seguintes de acordo com o número de prestações em que a despesa é
-dividida;❌                                                                                         
+dividida;✔️                                                                                         
 - 11 Nas listagens de cada CRUD deverão existir opções para reordenação ou filtragem dos itens.
 Por exemplo, as despesas listadas podem ser reordenadas pelo valor, data, categoria, etc. Além
 Projeto 2
-disso, as despesas são listráveis pelo mês, categoria, etc;❌                                                                                                 
+disso, as despesas são listráveis pelo mês, categoria, etc;✔️                                                                                                 
 - BackEnd                                                   
   -> banco de dados (MySql) ✔️                                                                                         
   -> Criptografia da senha no banco de dados ✔️;
@@ -63,7 +63,7 @@ O projeto ainda está em desenvolvimento e as próximas atualizações serão vo
 
 ```bash
 # Clonar o repositório
-git clone https://github.com/victor-joness/Solf1-Solucoes-Financeiras
+git clone https://github.com/victor-joness/Solf1-Solucoes-Financeiras-2.0
 
 # Entrar numa IDE de sua preferência 
 
@@ -110,7 +110,14 @@ git clone https://github.com/victor-joness/Solf1-Solucoes-Financeiras
                 <br />
                 <sub><b>Victor Mesquita<sub><b>
             </a>
-        </td>    
+        </td> 
+        <td align="center">
+            <a href="https://github.com/SamuelLopess03">
+                <img src="" width="150px;" alt="Foto Samuel"/>
+                <br />
+                <sub><b>Samuel Lopes<sub><b>
+            </a>
+        </td> 
     </tr>
 </table>
               
