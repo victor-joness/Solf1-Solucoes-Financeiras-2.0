@@ -97,10 +97,6 @@ git clone https://github.com/victor-joness/Solf1-Solucoes-Financeiras-2.0
 
 
 ## :mortar_board: Autores
-```bash
-# Agradecimentos:
-  - @vitorLostadaC (Me ajudou com os Cruds);
-```
 
 <table align="center">
     <tr>
@@ -113,7 +109,7 @@ git clone https://github.com/victor-joness/Solf1-Solucoes-Financeiras-2.0
         </td> 
         <td align="center">
             <a href="https://github.com/SamuelLopess03">
-                <img src="" width="150px;" alt="Foto Samuel"/>
+                <img src="https://user-images.githubusercontent.com/85620625/195366186-541c980e-1aba-4d03-9da7-5e49e64b9d22.png" width="150px;" alt="Foto Samuel"/>
                 <br />
                 <sub><b>Samuel Lopes<sub><b>
             </a>
