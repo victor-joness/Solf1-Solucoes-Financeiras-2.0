@@ -47,7 +47,7 @@ disso, as despesas são listráveis pelo mês, categoria, etc;✔️
   -> Criptografia da senha no banco de dados ✔️;
   
 ## 📝 Fotos do projeto                                                                         
-  -> https://imgur.com/gallery/u0nSXCl                                               
+  -> https://www.figma.com/file/yi3Ul79yZayWMzAVaoalOF/Solf1?type=design&mode=design&t=ycaipchLjrlEx3de-0                                               
 
 ## 📝 Ajustes e melhorias
 
